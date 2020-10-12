@@ -20,10 +20,10 @@ Everyone has doing the job of Prodcut Owner because none is one specialist.\
 Vitor is acting like a Scrum Master.
 
 ## Artifact 1 - ER Diagram
-![ER Diagram](https://github.com/VitorCardim/ThunderSharp/blob/main/ER%20Diagram.JPG)
+![ER Diagram](https://github.com/VitorCardim/ThunderSharp/blob/main/Artifacts/ER%20Diagram%20V2.JPEG)
 
 ## Artifact 2 - Low-Fi Mockup
-![ER Diagram](https://github.com/VitorCardim/ThunderSharp/blob/main/Low-Fi%20Mockup.jpeg)
+![Low-Fi Mockup](https://github.com/VitorCardim/ThunderSharp/blob/main/Artifacts/Low-Fi%20Mockup.jpeg)
 
 ## Team
 * Gerson Andrade Leite Brandão

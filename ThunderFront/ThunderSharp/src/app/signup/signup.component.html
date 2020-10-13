@@ -1,0 +1,60 @@
+
+    <body>
+        <form [formGroup]="signUpForm" style="margin-top: 150px;" (submit)="signUpSubmit()" >
+            <div class="container-fluid" >
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="h-100vh row justify-content-center align-items-center">
+                        
+                            <div class="col-md-6 b-right">
+                                <div>
+                                    <div class="text text-center">
+                                        <h1>Thunder Sharp</h1>
+                                        <p>Gama Academy</p>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="width: 46px" id="basic-addon1"><img src="/assets/_ionicons_svg_md-mail.svg" height="20" alt="image"></span>
+                                    </div>
+                                    <input type="text" placeholder="E-mail" formControlName = "Email" class="form-control">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><img src="/assets/_ionicons_svg_md-key.svg" height="20" alt="image"></span>
+                                    </div>
+                                    <input type="password" placeholder="Senha" formControlName = "Password" class="form-control">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><img src="/assets/person-outline.svg" height="20" alt="image"></span>
+                                    </div>
+                                    <input type="text" placeholder="Nome Completo" formControlName = "FullName" class="form-control">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><img src="/assets/phone-portrait-outline.svg" height="20" alt="image"></span>
+                                    </div>
+                                    <input type="text" placeholder="Telefone" formControlName = "PhoneNumber" class="form-control">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label>Você é Produtor ou Ator/Atriz ?</label>
+                                    <div class="input-group mb-3">
+                                        <div *ngFor="let item of checkItems">
+                                            <input type="checkbox" (change)="onChanged(item.name, $event.target.checked)">
+                                            {{ item.name }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" [disabled]= "!signUpForm.valid" style="background-color: #23ABFE;color: white" class="btn w-100">Cadastrar</button>
+                                <div class="input-group-prepend">
+                                </div>                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </form>
+        
+    </body>

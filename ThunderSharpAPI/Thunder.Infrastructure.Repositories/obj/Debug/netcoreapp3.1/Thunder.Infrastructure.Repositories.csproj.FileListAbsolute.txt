@@ -1,0 +1,8 @@
+C:\Users\nathi\source\repos\ThunderSharpAPI\Thunder.Infrastructure.Repositories\bin\Debug\netcoreapp3.1\Thunder.Infrastructure.Repositories.deps.json
+C:\Users\nathi\source\repos\ThunderSharpAPI\Thunder.Infrastructure.Repositories\bin\Debug\netcoreapp3.1\Thunder.Infrastructure.Repositories.dll
+C:\Users\nathi\source\repos\ThunderSharpAPI\Thunder.Infrastructure.Repositories\bin\Debug\netcoreapp3.1\Thunder.Domain.dll
+C:\Users\nathi\source\repos\ThunderSharpAPI\Thunder.Infrastructure.Repositories\bin\Debug\netcoreapp3.1\Thunder.Domain.pdb
+C:\Users\nathi\source\repos\ThunderSharpAPI\Thunder.Infrastructure.Repositories\obj\Debug\netcoreapp3.1\Thunder.Infrastructure.Repositories.csprojAssemblyReference.cache
+C:\Users\nathi\source\repos\ThunderSharpAPI\Thunder.Infrastructure.Repositories\obj\Debug\netcoreapp3.1\Thunder.Infrastructure.Repositories.AssemblyInfoInputs.cache
+C:\Users\nathi\source\repos\ThunderSharpAPI\Thunder.Infrastructure.Repositories\obj\Debug\netcoreapp3.1\Thunder.Infrastructure.Repositories.AssemblyInfo.cs
+C:\Users\nathi\source\repos\ThunderSharpAPI\Thunder.Infrastructure.Repositories\obj\Debug\netcoreapp3.1\Thunder.Infrastructure.Repositories.csproj.CopyComplete

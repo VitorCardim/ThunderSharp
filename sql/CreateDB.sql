@@ -36,39 +36,15 @@ CREATE TABLE [dbo].[Genres] (
 
 INSERT INTO 
     Genres(Label,Created,Updated)
-VALUES ('Action',GETDATE(),GETDATE())
+VALUES ('Film',GETDATE(),GETDATE())
 
 INSERT INTO 
     Genres(Label,Created,Updated)
-VALUES ('Comedy',GETDATE(),GETDATE())
+VALUES ('Novel',GETDATE(),GETDATE())
 
 INSERT INTO 
     Genres(Label,Created,Updated)
-VALUES ('Documentary',GETDATE(),GETDATE())
-
-INSERT INTO 
-    Genres(Label,Created,Updated)
-VALUES ('Drama',GETDATE(),GETDATE())
-
-INSERT INTO 
-    Genres(Label,Created,Updated)
-VALUES ('Horror',GETDATE(),GETDATE())
-
-INSERT INTO 
-    Genres(Label,Created,Updated)
-VALUES ('Musical',GETDATE(),GETDATE())
-
-INSERT INTO 
-    Genres(Label,Created,Updated)
-VALUES ('Romance',GETDATE(),GETDATE())
-
-INSERT INTO 
-    Genres(Label,Created,Updated)
-VALUES ('Sci-Fi',GETDATE(),GETDATE())
-
-INSERT INTO 
-    Genres(Label,Created,Updated)
-VALUES ('Suspense',GETDATE(),GETDATE())
+VALUES ('Series',GETDATE(),GETDATE())
 
 CREATE TABLE [dbo].[Person] (
 	[CPF] [char](11) NOT NULL,
@@ -76,7 +52,7 @@ CREATE TABLE [dbo].[Person] (
     [Email] [varchar](50) NOT NULL Unique,
     [Age] [varchar](3) NOT NULL,
     [PhoneNumber] [varchar](15) NOT NULL, /* Because of international Numbers*/
-    [Password] [varchar](250) NOT NULL,
+    [Password] [varchar](255) NOT NULL,
     [ProfileId] [int] NOT NULL,
     [Fee] [Decimal],
 	[Created] DateTime NOT NULL,

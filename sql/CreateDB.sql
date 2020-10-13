@@ -73,7 +73,7 @@ VALUES ('Suspense',GETDATE(),GETDATE())
 CREATE TABLE [dbo].[Person] (
 	[CPF] [char](11) NOT NULL,
     [Name] [varchar](50) NOT NULL,
-    [Email] [varchar](50) NOT NULL,
+    [Email] [varchar](50) NOT NULL Unique,
     [Age] [varchar](3) NOT NULL,
     [PhoneNumber] [varchar](15) NOT NULL, /* Because of international Numbers*/
     [Password] [varchar](250) NOT NULL,

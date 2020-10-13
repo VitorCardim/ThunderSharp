@@ -92,6 +92,7 @@ CREATE TABLE [dbo].[PersonGenres] (
     [CPF] [char](11) NOT NULL,
 	[GenreId] [int] NOT NULL,
 	[Created] DateTime NOT NULL,
+    CONSTRAINT PK_PersonGenres_Id PRIMARY KEY CLUSTERED (Id),
     CONSTRAINT FK_PersonGenres_CPF FOREIGN KEY (CPF) REFERENCES [dbo].[Person] (CPF),
     CONSTRAINT FK_PersonGenres_GenreId FOREIGN KEY (GenreId) REFERENCES [dbo].[Genres] (id)
 )
@@ -100,7 +101,8 @@ CREATE TABLE [dbo].[Production] (
 	[Id] [int] IDENTITY(1,1) NOT NULL,
     [Name] [varchar](200) NOT NULL,
     [Created] DateTime NOT NULL,
-    [Updated] DateTime NOT NULL
+    [Updated] DateTime NOT NULL,
+    CONSTRAINT PK_Production_Id PRIMARY KEY CLUSTERED (Id),
 )
 
 CREATE TABLE [dbo].[Reservation] (
@@ -110,6 +112,7 @@ CREATE TABLE [dbo].[Reservation] (
 	[Created] DateTime NOT NULL,
     [InitalDate] Date NOT NULL,
     [FinalDate] Date NOT NULL,
+    CONSTRAINT PK_Reservation_Id PRIMARY KEY CLUSTERED (Id),
     CONSTRAINT FK_PersonGenres_CPF FOREIGN KEY (CPF) REFERENCES [dbo].[Person] (CPF),
     CONSTRAINT FK_PersonGenres_ProductionId FOREIGN KEY (ProductionId) REFERENCES [dbo].[Production] (id)
 )

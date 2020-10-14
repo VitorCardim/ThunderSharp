@@ -11,6 +11,6 @@ namespace ThunderSharpAPI.Controllers.v1
     [ApiController]
     public class AdminController : ControllerBase
     {
-        public async Task<IActionResult> Register([FromServices] IProducerAppService producerAppService)
+        public async Task<IActionResult> Register([FromServices] IProducerAppService producerAppService);
     }
 }

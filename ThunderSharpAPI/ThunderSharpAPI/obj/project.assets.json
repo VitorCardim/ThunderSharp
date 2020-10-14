@@ -40,6 +40,15 @@
           "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll": {}
         }
       },
+      "MediatR/9.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/MediatR.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MediatR.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.8": {
         "type": "package",
         "dependencies": {
@@ -302,6 +311,22 @@
           }
         }
       },
+      "Thunder.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Thunder.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Thunder.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Thunder.Application.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Thunder.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -314,7 +339,10 @@
         },
         "runtime": {
           "bin/placeholder/Thunder.Domain.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -360,6 +388,24 @@
         "fluentvalidation.dependencyinjectionextensions.nuspec",
         "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
         "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml"
+      ]
+    },
+    "MediatR/9.0.0": {
+      "sha512": "8b3UYNxegHVYcJMG2zH8wn+YqxLvXG+eMfj0cMCq/jTW72p6O3PCKMkrIv0mqyxdW7bA4gblsocw7n+/9Akg5g==",
+      "type": "package",
+      "path": "mediatr/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gradient_128x128.png",
+        "lib/net461/MediatR.dll",
+        "lib/net461/MediatR.xml",
+        "lib/netstandard2.0/MediatR.dll",
+        "lib/netstandard2.0/MediatR.xml",
+        "lib/netstandard2.1/MediatR.dll",
+        "lib/netstandard2.1/MediatR.xml",
+        "mediatr.9.0.0.nupkg.sha512",
+        "mediatr.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.8": {
@@ -857,6 +903,11 @@
         "version.txt"
       ]
     },
+    "Thunder.Application/1.0.0": {
+      "type": "project",
+      "path": "../Thunder.Application/Thunder.Application.csproj",
+      "msbuildProject": "../Thunder.Application/Thunder.Application.csproj"
+    },
     "Thunder.Domain/1.0.0": {
       "type": "project",
       "path": "../Thunder.Domain/Thunder.Domain.csproj",
@@ -866,10 +917,12 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "FluentValidation >= 9.2.2",
+      "MediatR >= 9.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.8",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.1.8",
       "Microsoft.Extensions.DependencyInjection >= 3.1.8",
       "Swashbuckle.AspNetCore >= 5.6.3",
+      "Thunder.Application >= 1.0.0",
       "Thunder.Domain >= 1.0.0"
     ]
   },
@@ -904,6 +957,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\Thunder.Application\\Thunder.Application.csproj": {
+              "projectPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\Thunder.Application\\Thunder.Application.csproj"
+            },
             "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\Thunder.Domain\\Thunder.Domain.csproj": {
               "projectPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\Thunder.Domain\\Thunder.Domain.csproj"
             }
@@ -922,6 +978,10 @@
           "FluentValidation": {
             "target": "Package",
             "version": "[9.2.2, )"
+          },
+          "MediatR": {
+            "target": "Package",
+            "version": "[9.0.0, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",

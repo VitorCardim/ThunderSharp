@@ -30,16 +30,12 @@ namespace ThunderSharpAPI.Controllers.v1
         [ProducesResponseType(500)]
 
         public async Task<IActionResult> GetByID([FromRoute] string id)
-        {
-            return OkResult(await _dashboardService
+        { 
+            return Ok(await _dashboardService
                 .GetByID(id)
                 .ConfigureAwait(false));
         }
 
-        [HttpGet]
-        [ProducesResponseType(typeof(string), 201)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(500)]
 
     }
 }

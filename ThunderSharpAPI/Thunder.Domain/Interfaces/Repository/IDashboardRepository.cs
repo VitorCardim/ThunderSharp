@@ -8,12 +8,12 @@ namespace Thunder.Domain.Interfaces.Repository
 {
     public interface IDashboardRepository
     {
-        Task<Dashboard> GetByID(string id);
+        Task<DashboardMyReservations> GetByID(string id);
         
-        Task<Dashboard> GetTotal();
+        Task<DashboardTotalReservations> GetTotal();
 
-        IEnumerable<Dashboard> GetMostReservedDays();
+        IEnumerable<DashboardMostReservedDays> GetMostReservedDays();
 
-        IEnumerable<Dashboard> GetMostReservedActors();
+        IEnumerable<DashboardMostReservedActors> GetMostReservedActors();
     }
 }

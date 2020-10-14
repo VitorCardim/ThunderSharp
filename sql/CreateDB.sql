@@ -74,9 +74,11 @@ CREATE TABLE [dbo].[PersonGenres] (
 CREATE TABLE [dbo].[Production] (
 	[Id] [int] IDENTITY(1,1) NOT NULL,
     [Name] [varchar](200) NOT NULL,
+    [CPF] [char](11) NOT NULL,
     [Created] DateTime NOT NULL,
     [Updated] DateTime NOT NULL,
-    CONSTRAINT PK_Production_Id PRIMARY KEY CLUSTERED (Id)
+    CONSTRAINT PK_Production_Id PRIMARY KEY CLUSTERED (Id),
+    CONSTRAINT FK_Production_CPF FOREIGN KEY (CPF) REFERENCES [dbo].[Person] (CPF),
 )
 
 CREATE TABLE [dbo].[Reservation] (

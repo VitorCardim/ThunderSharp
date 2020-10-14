@@ -1,15 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\sql",
     "\\ThunderSharpAPI",
+    "\\ThunderSharpAPI\\Thunder.Application\\AppDashboard\\Interfaces",
+    "\\ThunderSharpAPI\\Thunder.Application\\AppThunder\\Interfaces",
     "\\ThunderSharpAPI\\Thunder.Domain",
-    "\\ThunderSharpAPI\\Thunder.Domain\\Entities",
-    "\\ThunderSharpAPI\\Thunder.Infrastructure",
-    "\\ThunderSharpAPI\\Thunder.Infrastructure.Ioc",
-    "\\ThunderSharpAPI\\Thunder.Infrastructure.Repository",
+    "\\ThunderSharpAPI\\Thunder.Domain\\Interfaces\\Repository",
     "\\ThunderSharpAPI\\Thunder.Infrastructure\\bin\\Release"
   ],
-  "SelectedNode": "\\sql\\CreateDB.sql",
+  "SelectedNode": "\\ThunderSharpAPI\\ThunderSharpAPI.sln",
   "PreviewInSolutionExplorer": false
 }

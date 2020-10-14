@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nathi\\source\\repos\\ThunderSharpAPI\\ThunderSharpAPI\\ThunderSharpAPI.csproj": {}
+    "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharpAPI\\ThunderSharpAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nathi\\source\\repos\\ThunderSharpAPI\\Thunder.Domain\\Thunder.Domain.csproj": {
+    "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\Thunder.Domain\\Thunder.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nathi\\source\\repos\\ThunderSharpAPI\\Thunder.Domain\\Thunder.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\Thunder.Domain\\Thunder.Domain.csproj",
         "projectName": "Thunder.Domain",
-        "projectPath": "C:\\Users\\nathi\\source\\repos\\ThunderSharpAPI\\Thunder.Domain\\Thunder.Domain.csproj",
-        "packagesPath": "C:\\Users\\nathi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nathi\\source\\repos\\ThunderSharpAPI\\Thunder.Domain\\obj\\",
+        "projectPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\Thunder.Domain\\Thunder.Domain.csproj",
+        "packagesPath": "C:\\Users\\Vitor Cardim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\Thunder.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Vitor Cardim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -65,22 +69,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\nathi\\source\\repos\\ThunderSharpAPI\\ThunderSharpAPI\\ThunderSharpAPI.csproj": {
+    "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharpAPI\\ThunderSharpAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nathi\\source\\repos\\ThunderSharpAPI\\ThunderSharpAPI\\ThunderSharpAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharpAPI\\ThunderSharpAPI.csproj",
         "projectName": "ThunderSharpAPI",
-        "projectPath": "C:\\Users\\nathi\\source\\repos\\ThunderSharpAPI\\ThunderSharpAPI\\ThunderSharpAPI.csproj",
-        "packagesPath": "C:\\Users\\nathi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nathi\\source\\repos\\ThunderSharpAPI\\ThunderSharpAPI\\obj\\",
+        "projectPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharpAPI\\ThunderSharpAPI.csproj",
+        "packagesPath": "C:\\Users\\Vitor Cardim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharpAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\nathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Vitor Cardim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -92,8 +100,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\nathi\\source\\repos\\ThunderSharpAPI\\Thunder.Domain\\Thunder.Domain.csproj": {
-                "projectPath": "C:\\Users\\nathi\\source\\repos\\ThunderSharpAPI\\Thunder.Domain\\Thunder.Domain.csproj"
+              "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\Thunder.Domain\\Thunder.Domain.csproj": {
+                "projectPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\Thunder.Domain\\Thunder.Domain.csproj"
               }
             }
           }
@@ -146,7 +154,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

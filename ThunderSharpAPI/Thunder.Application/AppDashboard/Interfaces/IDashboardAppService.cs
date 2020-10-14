@@ -6,14 +6,14 @@ using Thunder.Domain.Entities;
 
 namespace Thunder.Application.AppDashboard.Interfaces
 {
-    public interface IDashboardServices
+    public interface IDashboardAppService
     {
-        Task<Dashboard> GetByID(string id);
+        Task<DashboardMyReservations> GetByID(string id); /* waiting for method from Person */
 
-        Task<Dashboard> GetTotal();
+        Task<DashboardTotalReservations> GetTotal();
 
-        Task<Dashboard> GetMostReservedDays();
+        IEnumerable<DashboardMostReservedDays> GetMostReservedDays();
 
-        Task<Dashboard> GetMostReservedActors();
+        IEnumerable<DashboardMostReservedActors> GetMostReservedActors();
     }
 }

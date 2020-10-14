@@ -8,6 +8,6 @@ namespace Thunder.Domain.Interfaces.Repository
 {
     public interface IAdmin : IRegister
     {
-        Task<Producer> GetProducer(string token);
+       /* Task<Producer> GetProducer(string token);*/
     }
 }

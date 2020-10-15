@@ -23,7 +23,7 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = @$"SELECT Person.CPF, 
                                            Person.Email,
                                            Person.Name,
@@ -39,7 +39,7 @@ namespace Thunder.Infrastructure.Repositories
 
                 using SqlCommand cmd = new SqlCommand(sqlCmd, con);
                 cmd.CommandType = CommandType.Text;
-                con.Open();
+                await con.OpenAsync();
 
                 var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false);
 
@@ -67,30 +67,46 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = @"INSERT INTO 
-                                    Person (ProfileId,
+                                    Person (CPF,
                                             Name, 
                                             Email, 
-                                            Password, 
-                                            Age, PhoneNumber,CPF) 
-                               VALUES (@profileId, 
-                                        @name,
-                                        @email, 
-                                        @password,
-                                        @age, @phoneNumber, CPF
-                                        ); SELECT scope_identity();";
+                                            Age,
+                                            PhoneNumber,
+                                            Password,
+                                            ProfileId,
+                                            Fee,
+                                            Created,
+                                            Updated) 
+
+                                    VALUES (@CPF,
+                                            @Name, 
+                                            @Email, 
+                                            @Age, 
+                                            @PhoneNumber,
+                                            @Password,
+                                            @ProfileId,
+                                            @Fee,
+                                            @Created,
+                                            @Updated
+                                        ); SELECT @@identity;";
 
                 using SqlCommand cmd = new SqlCommand(sqlCmd, con);
                 cmd.CommandType = CommandType.Text;
 
                 cmd.Parameters.AddWithValue("ProfileId", user.Profile.Id);
-                cmd.Parameters.AddWithValue("name", user.Name);
-                cmd.Parameters.AddWithValue("email", user.Email);
-                cmd.Parameters.AddWithValue("phoneNumber", user.PhoneNumber);
+                cmd.Parameters.AddWithValue("Name", user.Name);
                 cmd.Parameters.AddWithValue("CPF", user.CPF);
+                cmd.Parameters.AddWithValue("Email", user.Email);
+                cmd.Parameters.AddWithValue("Age", user.Age);
+                cmd.Parameters.AddWithValue("PhoneNumber", user.PhoneNumber);
+                cmd.Parameters.AddWithValue("Password", user.Password);
+                cmd.Parameters.AddWithValue("Fee", user.Fee);
+                cmd.Parameters.AddWithValue("Updated", user.Updated);
+                cmd.Parameters.AddWithValue("Created", user.Created);
 
-                con.Open();
+                await con.OpenAsync();
                 var id = await cmd
                                .ExecuteScalarAsync()
                                .ConfigureAwait(false);

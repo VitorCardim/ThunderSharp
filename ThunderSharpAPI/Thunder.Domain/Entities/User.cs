@@ -9,6 +9,19 @@ namespace Thunder.Domain.Entities
     public class User
     {
 
+        public User(string cpf, string name, string email, string age, string phoneNumber, string password, Profile profile, decimal fee)
+        {
+            CPF = cpf;
+            Name = name;
+            Email = email;
+            Age = age;
+            PhoneNumber = phoneNumber;
+            Encrypt(password);
+            Profile = profile;
+            Created = DateTime.Now;
+            Updated = DateTime.Now;
+        }
+
         public User(string cpf, string name, string email, string age, string phoneNumber, string password, Profile profile)
         {
             CPF = cpf;
@@ -18,6 +31,8 @@ namespace Thunder.Domain.Entities
             PhoneNumber = phoneNumber;
             Encrypt(password);
             Profile = profile;
+            Created = DateTime.Now;
+            Updated = DateTime.Now;
         }
 
         public string CPF { get; set; }
@@ -25,6 +40,9 @@ namespace Thunder.Domain.Entities
         public string Email { get; set; }
         public string Age { get; set; }
         public string PhoneNumber { get; set; }
+        public decimal Fee { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime Updated { get; set; }
         public string Password { get; set; }
         public Profile Profile { get; set; }
 
@@ -44,12 +62,17 @@ namespace Thunder.Domain.Entities
         }
     }
 
+
     public class UserValidator : AbstractValidator<User>
     {
         public UserValidator()
         {
             RuleFor(a => a.Name).NotNull();
-            
+            RuleFor(a => a.Password).MinimumLength(8);
+            RuleFor(a => a.Email).EmailAddress();
+            RuleFor(a => a.CPF).NotNull();
+            RuleFor(a => a.Age).NotNull();
+            RuleFor(a => a.PhoneNumber).MaximumLength(11);
         }
     }
 }

@@ -47,7 +47,7 @@ INSERT INTO
 VALUES ('Series',GETDATE(),GETDATE())
 
 CREATE TABLE [dbo].[Person] (
-	[CPF] [char](11) NOT NULL,
+	[Id] [int] IDENTITY(1,1) NOT NULL,
     [Name] [varchar](50) NOT NULL,
     [Email] [varchar](50) NOT NULL Unique,
     [Age] [varchar](3) NOT NULL,
@@ -57,38 +57,38 @@ CREATE TABLE [dbo].[Person] (
     [Fee] [Decimal],
 	[Created] DateTime NOT NULL,
     [Updated] DateTime NOT NULL,
-    CONSTRAINT PK_Person_CPF PRIMARY KEY CLUSTERED (CPF),
+    CONSTRAINT PK_Person_Id PRIMARY KEY CLUSTERED (Id),
     CONSTRAINT FK_Person_ProfileId FOREIGN KEY (ProfileId) REFERENCES [dbo].[Profile] (Id)
     )
 
 CREATE TABLE [dbo].[PersonGenres] (
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-    [CPF] [char](11) NOT NULL,
+    [PersonId] [int] NOT NULL,
 	[GenreId] [int] NOT NULL,
 	[Created] DateTime NOT NULL,
     CONSTRAINT PK_PersonGenres_Id PRIMARY KEY CLUSTERED (Id),
-    CONSTRAINT FK_PersonGenres_CPF FOREIGN KEY (CPF) REFERENCES [dbo].[Person] (CPF),
+    CONSTRAINT FK_PersonGenres_PersonId FOREIGN KEY (PersonId) REFERENCES [dbo].[Person] (Id),
     CONSTRAINT FK_PersonGenres_GenreId FOREIGN KEY (GenreId) REFERENCES [dbo].[Genres] (id)
 )
 
 CREATE TABLE [dbo].[Production] (
 	[Id] [int] IDENTITY(1,1) NOT NULL,
     [Name] [varchar](200) NOT NULL,
-    [CPF] [char](11) NOT NULL,
+    [PersonId] [int] NOT NULL,
     [Created] DateTime NOT NULL,
     [Updated] DateTime NOT NULL,
     CONSTRAINT PK_Production_Id PRIMARY KEY CLUSTERED (Id),
-    CONSTRAINT FK_Production_CPF FOREIGN KEY (CPF) REFERENCES [dbo].[Person] (CPF),
+    CONSTRAINT FK_Production_PersonId FOREIGN KEY (PersonId) REFERENCES [dbo].[Person] (Id),
 )
 
 CREATE TABLE [dbo].[Reservation] (
 	[Id] [int] IDENTITY(1,1) NOT NULL,
-    [CPF] [char](11) NOT NULL,
+    [PersonId] [int] NOT NULL,
 	[ProductionId] [int] NOT NULL,
 	[Created] DateTime NOT NULL,
     [InitalDate] Date NOT NULL,
     [FinalDate] Date NOT NULL,
     CONSTRAINT PK_Reservation_Id PRIMARY KEY CLUSTERED (Id),
-    CONSTRAINT FK_Reservation_CPF FOREIGN KEY (CPF) REFERENCES [dbo].[Person] (CPF),
+    CONSTRAINT FK_Reservation_PersonId FOREIGN KEY (PersonId) REFERENCES [dbo].[Person] (Id),
     CONSTRAINT FK_Reservation_ProductionId FOREIGN KEY (ProductionId) REFERENCES [dbo].[Production] (id)
 )

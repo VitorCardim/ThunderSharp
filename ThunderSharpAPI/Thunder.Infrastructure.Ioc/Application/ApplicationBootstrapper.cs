@@ -7,7 +7,7 @@ using Thunder.Application.AppDashboard;
 
 namespace Thunder.Infrastructure.Ioc.Application
 {
-    internal class ApplicationBootsTrapper
+    internal class ApplicationBootstrapper
     {
         internal void ChildServiceRegister(IServiceCollection services)
         {

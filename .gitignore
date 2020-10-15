@@ -522,4 +522,22 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
+# Visual Studio
+ThunderSharpAPI/.vs/*
+ThunderSharp/.vs/*
+ThunderSharp/ThunderSharpAPI/Thunder.Application/bin/*
+ThunderSharp/ThunderSharpAPI/Thunder.Application/obj/*
+ThunderSharpAPI/Thunder.Infrastructure.Ioc/obj/*
+ThunderSharpAPI/Thunder.Infrastructure.Ioc/bin/*
+ThunderSharpAPI/Thunder.Domain/obj/*
+ThunderSharpAPI/Thunder.Domain/bin/*
+ThunderSharpAPI/Thunder.Infrastructure.Repositories/obj/*
+ThunderSharpAPI/Thunder.Infrastructure.Repositories/bin/*
+ThunderSharpAPI/ThunderSharp.Testes/obj/*
+ThunderSharpAPI/ThunderSharp.Testes/bin/*
+ThunderSharpAPI/ThunderSharpAPI/obj/*
+ThunderSharpAPI/ThunderSharpAPI/bin/*
+
+
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode,aspnetcore,angular

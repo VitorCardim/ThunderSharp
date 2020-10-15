@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\ThunderSharp.Testes.csproj": {}
+    "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\ThunderSharp.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\ThunderSharp.Testes.csproj": {
+    "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\ThunderSharp.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\ThunderSharp.Testes.csproj",
-        "projectName": "ThunderSharp.Testes",
-        "projectPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\ThunderSharp.Testes.csproj",
+        "projectUniqueName": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\ThunderSharp.Tests.csproj",
+        "projectName": "ThunderSharp.Tests",
+        "projectPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\ThunderSharp.Tests.csproj",
         "packagesPath": "C:\\Users\\Vitor Cardim\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\obj\\",
         "projectStyle": "PackageReference",

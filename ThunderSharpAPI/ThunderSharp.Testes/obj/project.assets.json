@@ -70,6 +70,115 @@
           "lib/netstandard1.3/Microsoft.DotNet.InternalAbstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Configuration/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "3.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "3.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.FileExtensions/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "3.0.0",
+          "Microsoft.Extensions.FileProviders.Physical": "3.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Json/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration": "3.0.0",
+          "Microsoft.Extensions.Configuration.FileExtensions": "3.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.Json.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.UserSecrets/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Json": "3.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.UserSecrets.dll": {}
+        },
+        "build": {
+          "build/netstandard2.0/Microsoft.Extensions.Configuration.UserSecrets.props": {},
+          "build/netstandard2.0/Microsoft.Extensions.Configuration.UserSecrets.targets": {}
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Abstractions/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "3.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Physical/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.0.0",
+          "Microsoft.Extensions.FileSystemGlobbing": "3.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.FileProviders.Physical.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.FileProviders.Physical.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileSystemGlobbing/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Primitives/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
+        }
+      },
       "Microsoft.NET.Test.Sdk/16.2.0": {
         "type": "package",
         "dependencies": {
@@ -1647,6 +1756,141 @@
         "lib/netstandard1.3/Microsoft.DotNet.InternalAbstractions.dll",
         "microsoft.dotnet.internalabstractions.1.0.0.nupkg.sha512",
         "microsoft.dotnet.internalabstractions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Configuration/3.0.0": {
+      "sha512": "KECbOpM0EySVbKTQDN9o0swdnZpwpdhuYngnnJGzXdcAc+JR1mv7iF4lOyK00KSH8OZjobO0TUeo3mn7J2rdrA==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
+        "microsoft.extensions.configuration.3.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/3.0.0": {
+      "sha512": "Lge/PbXC53jI1MF2J92X5EZOeKV8Q/rlB1aV3H9I/ZTDyQGOyBcL03IAvnviWpHKj43BDkNy6kU2KKoh8kAS0g==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.abstractions/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "microsoft.extensions.configuration.abstractions.3.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.FileExtensions/3.0.0": {
+      "sha512": "ldGkKUHp1l0ylmPvWFV9loI3r7odsK5v+FXhBN3+fC/Dzw1mSCRvarqdbfWvzV9asVoVxWOD8+kPd/o8puUZrQ==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.fileextensions/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.FileExtensions.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.FileExtensions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.FileExtensions.xml",
+        "microsoft.extensions.configuration.fileextensions.3.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.fileextensions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Json/3.0.0": {
+      "sha512": "OPRsOom05WwlPfuN3ufHc+w/SyovJYpByn45+XrnqogXdS8z5UH03lrC/VKvEEBU0hmiw5wWCM0b2rnaMiEKdA==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.json/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.Json.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.Json.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Json.xml",
+        "microsoft.extensions.configuration.json.3.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.json.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.UserSecrets/3.0.0": {
+      "sha512": "1UORsfr5hdPlNKzsu0ThY5SPCsYbc1yQQcTqGbOuTZz9gdCy3AL97mHUFjyGqKrQ43B7AZxwdG0JU/TlQw+vFw==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.usersecrets/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/netstandard2.0/Microsoft.Extensions.Configuration.UserSecrets.props",
+        "build/netstandard2.0/Microsoft.Extensions.Configuration.UserSecrets.targets",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.UserSecrets.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Configuration.UserSecrets.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.UserSecrets.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.UserSecrets.xml",
+        "microsoft.extensions.configuration.usersecrets.3.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.usersecrets.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.FileProviders.Abstractions/3.0.0": {
+      "sha512": "kahEeykb6FyQytoZNNXuz74X85B4weIEt8Kd+0klK48bkXDWOIHAOvNjlGsPMcS9CL935Te8QGQS83JqCbpdHA==",
+      "type": "package",
+      "path": "microsoft.extensions.fileproviders.abstractions/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
+        "microsoft.extensions.fileproviders.abstractions.3.0.0.nupkg.sha512",
+        "microsoft.extensions.fileproviders.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.FileProviders.Physical/3.0.0": {
+      "sha512": "76yB1N8hvzDaTqx3epda5sl/3HATw2FskztmmLmfWuvaooaNgbDa37Jyc7IyBCC4PreXEW/XLEET9w6fiJZOFg==",
+      "type": "package",
+      "path": "microsoft.extensions.fileproviders.physical/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.FileProviders.Physical.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.FileProviders.Physical.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Physical.xml",
+        "microsoft.extensions.fileproviders.physical.3.0.0.nupkg.sha512",
+        "microsoft.extensions.fileproviders.physical.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.FileSystemGlobbing/3.0.0": {
+      "sha512": "E1GcUu8JvY/8QfqMUYTs6HlDLefMYhEzeHsjrhRqOZguBmDTFU8d8m+mGtHEyYHWMRT1TEiha0a8I2AuozDUWQ==",
+      "type": "package",
+      "path": "microsoft.extensions.filesystemglobbing/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.xml",
+        "microsoft.extensions.filesystemglobbing.3.0.0.nupkg.sha512",
+        "microsoft.extensions.filesystemglobbing.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Primitives/3.0.0": {
+      "sha512": "6gwewTbmOh+ZVBicVkL1XRp79sx4O7BVY6Yy+7OYZdwn3pyOKe9lOam+3gXJ3TZMjhJZdV0Ub8hxHt2vkrmN5Q==",
+      "type": "package",
+      "path": "microsoft.extensions.primitives/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll",
+        "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
+        "microsoft.extensions.primitives.3.0.0.nupkg.sha512",
+        "microsoft.extensions.primitives.nuspec"
       ]
     },
     "Microsoft.NET.Test.Sdk/16.2.0": {
@@ -5464,6 +5708,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Bogus >= 31.0.3",
+      "Microsoft.Extensions.Configuration.UserSecrets >= 3.0.0",
       "Microsoft.NET.Test.Sdk >= 16.2.0",
       "NUnit3TestAdapter >= 3.15.1",
       "nunit >= 3.12.0",
@@ -5477,9 +5722,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\ThunderSharp.Testes.csproj",
-      "projectName": "ThunderSharp.Testes",
-      "projectPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\ThunderSharp.Testes.csproj",
+      "projectUniqueName": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\ThunderSharp.Tests.csproj",
+      "projectName": "ThunderSharp.Tests",
+      "projectPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\ThunderSharp.Tests.csproj",
       "packagesPath": "C:\\Users\\Vitor Cardim\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Vitor Cardim\\ThunderSharp\\ThunderSharpAPI\\ThunderSharp.Testes\\obj\\",
       "projectStyle": "PackageReference",
@@ -5515,6 +5760,10 @@
           "Bogus": {
             "target": "Package",
             "version": "[31.0.3, )"
+          },
+          "Microsoft.Extensions.Configuration.UserSecrets": {
+            "target": "Package",
+            "version": "[3.0.0, )"
           },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",

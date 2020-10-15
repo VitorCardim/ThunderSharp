@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunder.Application", "Thun
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunder.Infrastructure.Repositories", "Thunder.Infrastructure.Repositories\Thunder.Infrastructure.Repositories.csproj", "{A3EB3319-6652-4214-80E8-5725B87261A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThunderSharp.Testes", "ThunderSharp.Testes\ThunderSharp.Testes.csproj", "{1A67A414-55AA-4B02-B570-17E2192AD008}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThunderSharp.Tests", "ThunderSharp.Testes\ThunderSharp.Tests.csproj", "{1A67A414-55AA-4B02-B570-17E2192AD008}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

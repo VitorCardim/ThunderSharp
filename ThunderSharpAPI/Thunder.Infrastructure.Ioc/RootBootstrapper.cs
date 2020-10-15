@@ -10,7 +10,7 @@ namespace Thunder.Infrastructure.Ioc
     {
         public void RootRegisterServices(IServiceCollection services)
         {
-            new ApplicationBootstrapper().ChildServiceRegister(services);
+            new ApplicationBootsTrapper().ChildServiceRegister(services);
             new RepositoryBootstrapper().ChildServiceRegister(services);
         }
     }

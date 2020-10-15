@@ -14,18 +14,24 @@ namespace Thunder.Domain.Entities
         //AJUSTAR - para o tipo correto do CPF
         public string CPF { get; set; }
         public DateTime Created { get; set; }
-        public DateTime Update { get; set; }
+        public DateTime Updated { get; set; }
 
         //AJUSTAR - para o tipo correto do CPF
-        public Production(Guid id, string name, string cpf, DateTime created)
+        public Production(Guid id, string name, string cpf, DateTime created, DateTime updated)
         {
             this.Id = id;
             this.Name = name;
             this.CPF = cpf;
             this.Created = DateTime.Now;
+            this.Updated = DateTime.Now;
 
         }
 
-
+        public Production(string name, string cpf, DateTime created, DateTime updated)
+        {
+            Name = name;
+            CPF = cpf;
+            Created = created;
+        }
     }
 }

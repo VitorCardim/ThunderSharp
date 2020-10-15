@@ -10,7 +10,7 @@ using Thunder.Domain.Interfaces.Repository;
 
 namespace Thunder.Infrastructure.Repositories
 {
-    class ProductionRepository : IProduction
+    class ProductionRepository : IProductionRepository
     {
         private readonly IConfiguration _configuration;
         public ProductionRepository(IConfiguration configuration)
@@ -21,13 +21,78 @@ namespace Thunder.Infrastructure.Repositories
         public IEnumerable<Production> Get()
         {
 
-            throw new NotImplementedException();
+            try
+            {
+                using (var con = new SqlConnection(_configuration["ConnectionString"]))
+                {
+                    var productionList = new List<Production>();
+                    var sqlCmd = @"SELECT Id, Name, Cpf, Created, Updated FROM Production";
+
+                    using (SqlCommand cmd = new SqlCommand(sqlCmd, con))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        con.Open();
+                        var reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            var production = new Production(Guid.Parse(reader["id"].ToString()),
+                                                            reader["name"].ToString(),
+                                                            reader["cpf"].ToString(),
+                                                            DateTime.Parse(reader["created"].ToString()),
+                                                            DateTime.Parse(reader["updated"].ToString()));
+
+                            productionList.Add(production);
+                        }
+
+                        return productionList;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
 
         }
 
-        public Task<Production> GetByID(int id)
+        public async Task<Production> GetByID(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (var con = new SqlConnection(_configuration["ConnectionString"]))
+                {
+                    var sqlCmd = $@"SELECT Id, Name, Cpf, Created, Updated FROM Production where id = {id}";
+
+                    using (SqlCommand cmd = new SqlCommand(sqlCmd, con))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        con.Open();
+
+                        var reader = await cmd
+                                            .ExecuteReaderAsync()
+                                            .ConfigureAwait(false);
+
+                        while (reader.Read())
+                        {
+                            var production = new Production(Guid.Parse(reader["id"].ToString()),
+                                                            reader["name"].ToString(),
+                                                            reader["cpf"].ToString(),
+                                                            DateTime.Parse(reader["created"].ToString()),
+                                                            DateTime.Parse(reader["updated"].ToString()));
+                                
+
+                            return production;
+                        }
+
+                        return default;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public int Insert(Production production)
@@ -35,28 +100,22 @@ namespace Thunder.Infrastructure.Repositories
             try
             {
                 using var con = new SqlConnection(_configuration["ConnectionString"]);
-                var sqlCmd = @"INSERT INTO 
-                                  PRODUCER (FullName, 
-                                        Email, 
-                                        PhoneNumber, 
-                                        Age,
-                                        Password) 
-                               VALUES (@FullName, 
-                                        @Email,
-                                        @Age, 
-                                        @Password);";
+                var sqlCmd = @"INSERT INTO Production
+                               (Name, CPF, Created, Updated) 
+                               VALUES 
+                               (@Name, @Cpf, @Created, @Updated);";
 
                 using SqlCommand cmd = new SqlCommand(sqlCmd, con)
                 {
                     CommandType = CommandType.Text
                 };
 
-                cmd.Parameters.AddWithValue("FullName", "");
-                cmd.Parameters.AddWithValue("Email", "");
-                cmd.Parameters.AddWithValue("Age", "");
-                cmd.Parameters.AddWithValue("Password", "");
+                cmd.Parameters.AddWithValue("Name", production.Name);
+                cmd.Parameters.AddWithValue("Cpf", production.CPF);
+                cmd.Parameters.AddWithValue("Create", production.Created);
+                cmd.Parameters.AddWithValue("Updated", production.Updated);
 
-                await con.OpenAsync();
+                con.Open();
                 var id = cmd.ExecuteScalar();
 
                 return int.Parse(id.ToString());
@@ -66,7 +125,8 @@ namespace Thunder.Infrastructure.Repositories
             {
                 throw new Exception(ex.Message);
             }
-
         }
     }
+
 }
+

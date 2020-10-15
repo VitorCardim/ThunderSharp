@@ -9,6 +9,6 @@ namespace Thunder.Application.AppThunder.Interfaces
 {
     public interface IUserAppService
     {
-        Task<UserViewModel> InsertAsync(UserInput user);
+        Task<int> InsertAsync(UserInput user);
     }
 }

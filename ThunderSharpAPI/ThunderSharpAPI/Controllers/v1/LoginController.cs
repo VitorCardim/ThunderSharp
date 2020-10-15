@@ -32,8 +32,8 @@ namespace ThunderSharpAPI.Controllers.v1
         public LoginController(INotificationHandler<DomainNotification> notification, IConfiguration Configuration, ILoginAppService LoginAppService) :base(notification)
         {
             _smartNotification = (DomainNotificationHandler)notification;
-            Configuration = _configuration;
-            LoginAppService = _loginAppService;
+            _loginAppService = LoginAppService;
+            _configuration = Configuration;
         }
 
 
@@ -42,9 +42,7 @@ namespace ThunderSharpAPI.Controllers.v1
         [ProducesResponseType(typeof(string), 201)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
-        public async Task<object> Post([FromBody] LoginInput loginInput, [FromServices] 
-            SigningConfigurations signingConfigurations
-            )
+        public async Task<object> Post([FromBody] LoginInput loginInput, [FromServices] SigningConfigurations signingConfigurations)
         {
             try
             {
@@ -87,7 +85,6 @@ namespace ThunderSharpAPI.Controllers.v1
                     };
                 }
                 return Unauthorized(_smartNotification.GetNotifications());
-
             }
             catch (Exception ex)
             {

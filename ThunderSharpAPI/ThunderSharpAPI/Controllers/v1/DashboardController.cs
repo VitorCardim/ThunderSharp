@@ -8,14 +8,23 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thunder.Application.AppDashboard;
 using Thunder.Application.AppDashboard.Interfaces;
+using Marraia.Notifications.Models;
+using Marraia.Notifications.Base;
 
 namespace ThunderSharpAPI.Controllers.v1
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DashboardController : ControllerBase
+    public class DashboardController : BaseController
     {
         private readonly IDashboardAppService _dashboardService;
+
+        public DashboardController(INotificationHandler<DomainNotification> notification,
+            IDashboardAppService dashboardAppService)
+            :base(notification)
+        {
+            _dashboardService = dashboardAppService;
+        }
 
         [Authorize(Roles = "Productor")]
         [HttpPost]
@@ -24,18 +33,28 @@ namespace ThunderSharpAPI.Controllers.v1
         [ProducesResponseType(500)]
 
 
-        [HttpGet]
-        [ProducesResponseType(typeof(string), 201)]
+        [HttpGet] //api/Dashboard
+        [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
 
         public async Task<IActionResult> GetByID([FromRoute] string id)
         { 
-            return Ok(await _dashboardService
+            return OkOrNoContent(await _dashboardService
                 .GetByID(id)
                 .ConfigureAwait(false));
         }
-
-
+        public async Task<IActionResult> GetTotal() 
+        {
+            return OkOrNoContent( await _dashboardService.GetTotal());
+        }
+        public IActionResult GetMostReservedDays()
+        {
+            return OkOrNoContent( _dashboardService.GetMostReservedDays());
+        }
+        public IActionResult GetMostReservedActors()
+        {
+            return OkOrNoContent(_dashboardService.GetMostReservedActors());
+        }
     }
 }

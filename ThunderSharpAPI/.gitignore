@@ -537,6 +537,7 @@ ThunderSharpAPI/ThunderSharp.Testes/obj/*
 ThunderSharpAPI/ThunderSharp.Testes/bin/*
 ThunderSharpAPI/ThunderSharpAPI/obj/*
 ThunderSharpAPI/ThunderSharpAPI/bin/*
-
+.vs/ThunderSharp/v16/*
+.vs/*
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode,aspnetcore,angular

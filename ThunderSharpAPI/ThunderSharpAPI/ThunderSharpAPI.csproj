@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Thunder.Application\Thunder.Application.csproj" />
     <ProjectReference Include="..\Thunder.Domain\Thunder.Domain.csproj" />
+    <ProjectReference Include="..\Thunder.Infrastructure.Ioc\Thunder.Infrastructure.Ioc.csproj" />
   </ItemGroup>
 
 

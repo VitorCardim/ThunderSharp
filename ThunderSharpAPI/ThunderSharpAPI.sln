@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThunderSharpAPI", "ThunderS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunder.Domain", "Thunder.Domain\Thunder.Domain.csproj", "{FEF08E61-A999-4464-BE08-8FC6055B610E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thunder.Infrastructure.Ioc", "Thunder.Infrastructure.Ioc\Thunder.Infrastructure.Ioc.csproj", "{F4C21300-8CB9-4BF4-91B2-4F2783CECDDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunder.Infrastructure.Ioc", "Thunder.Infrastructure.Ioc\Thunder.Infrastructure.Ioc.csproj", "{F4C21300-8CB9-4BF4-91B2-4F2783CECDDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thunder.Application", "Thunder.Application\Thunder.Application.csproj", "{86BC3D47-8283-409B-B873-9118529410CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunder.Application", "Thunder.Application\Thunder.Application.csproj", "{86BC3D47-8283-409B-B873-9118529410CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thunder.Infrastructure.Repositories", "Thunder.Infrastructure.Repositories\Thunder.Infrastructure.Repositories.csproj", "{A3EB3319-6652-4214-80E8-5725B87261A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunder.Infrastructure.Repositories", "Thunder.Infrastructure.Repositories\Thunder.Infrastructure.Repositories.csproj", "{A3EB3319-6652-4214-80E8-5725B87261A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThunderSharp.Testes", "ThunderSharp.Testes\ThunderSharp.Testes.csproj", "{1A67A414-55AA-4B02-B570-17E2192AD008}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A3EB3319-6652-4214-80E8-5725B87261A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3EB3319-6652-4214-80E8-5725B87261A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3EB3319-6652-4214-80E8-5725B87261A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A67A414-55AA-4B02-B570-17E2192AD008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A67A414-55AA-4B02-B570-17E2192AD008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A67A414-55AA-4B02-B570-17E2192AD008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A67A414-55AA-4B02-B570-17E2192AD008}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

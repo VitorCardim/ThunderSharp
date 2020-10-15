@@ -27,13 +27,7 @@ namespace ThunderSharpAPI.Controllers.v1
         }
 
         [Authorize(Roles = "Productor")]
-        [HttpPost]
-        [ProducesResponseType(typeof(string), 201)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(500)]
-
-
-        [HttpGet] //api/Dashboard
+        [HttpGet("{id}")] //api/Dashboard
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
@@ -48,13 +42,13 @@ namespace ThunderSharpAPI.Controllers.v1
         {
             return OkOrNoContent( await _dashboardService.GetTotal());
         }
-        public IActionResult GetMostReservedDays()
+        public async Task<IActionResult> GetMostReservedDays()
         {
-            return OkOrNoContent( _dashboardService.GetMostReservedDays());
+            return OkOrNoContent(await _dashboardService.GetMostReservedDays());
         }
-        public IActionResult GetMostReservedActors()
+        public async Task<IActionResult> GetMostReservedActors()
         {
-            return OkOrNoContent(_dashboardService.GetMostReservedActors());
+            return OkOrNoContent(await _dashboardService.GetMostReservedActors());
         }
     }
 }

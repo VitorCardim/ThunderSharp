@@ -12,8 +12,8 @@ namespace Thunder.Application.AppDashboard.Interfaces
 
         Task<DashboardTotalReservations> GetTotal();
 
-        IEnumerable<DashboardMostReservedDays> GetMostReservedDays();
+        Task<IEnumerable<DashboardMostReservedDays>> GetMostReservedDays();
 
-        IEnumerable<DashboardMostReservedActors> GetMostReservedActors();
+        Task<IEnumerable<DashboardMostReservedActors>> GetMostReservedActors();
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Thunder.Domain.Entities;
 
-namespace Thunder.Domain.Interfaces.Repository
+namespace Thunder.Domain.Interfaces.Repositories
 {
     public interface IProductionRepository
     {

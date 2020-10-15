@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Thunder.Domain.Entities;
 
-namespace Thunder.Domain.Interfaces.Repository
+namespace Thunder.Domain.Interfaces.Repositories
 {
     public interface IDashboardRepository
     {
@@ -12,8 +12,8 @@ namespace Thunder.Domain.Interfaces.Repository
         
         Task<DashboardTotalReservations> GetTotal();
 
-        IEnumerable<DashboardMostReservedDays> GetMostReservedDays();
+        Task<IEnumerable<DashboardMostReservedDays>> GetMostReservedDays();
 
-        IEnumerable<DashboardMostReservedActors> GetMostReservedActors();
+        Task<IEnumerable<DashboardMostReservedActors>> GetMostReservedActors();
     }
 }

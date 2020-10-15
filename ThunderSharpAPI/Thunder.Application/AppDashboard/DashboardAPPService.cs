@@ -1,51 +1,41 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Thunder.Domain.Entities;
 using Thunder.Application.AppDashboard.Interfaces;
+using Thunder.Domain.Entities;
 using Thunder.Domain.Interfaces.Repository;
 
 namespace Thunder.Application.AppDashboard
-
 {
-    public class DashboardAPPService : IDashboardAppService
+    public class DashboardAppService : IDashboardAppService
     {
-        private readonly IDashboardRepository _DashboardRepository;
+        private readonly IDashboardRepository _dashboardRepository;
         
-        public IEnumerable<Dashboard> Get()
+        public DashboardAppService(IDashboardRepository dashboardRepository) 
         {
-            return _heroRepository.Get();
+            _dashboardRepository = dashboardRepository;
+
+        }
+        public Task<DashboardMyReservations> GetByID(string id)
+        {
+            return _dashboardRepository.GetByID(id);
         }
 
-        public async Task<Hero> GetByIdAsync(int id)
+        public IEnumerable<DashboardMostReservedActors> GetMostReservedActors()
         {
-            return await _heroRepository
-                            .GetByIdAsync(id)
-                            .ConfigureAwait(false);
+            return _dashboardRepository.GetMostReservedActors();
         }
 
-        public async Task<Hero> Insert(HeroInput input)
+        public IEnumerable<DashboardMostReservedDays> GetMostReservedDays()
         {
-            //TODO: Criar metodo de obter o editor pelo Id
-            var hero = new Hero(input.Name, new Editor(input.IdEditor), input.Age);
+            return _dashboardRepository.GetMostReservedDays();
+        }
 
-            if (!hero.IsValid())
-            {
-                _notification.NewNotificationBadRequest("Os dados não foram preenchidos corretamente!");
-                return default;
-            }
-
-            if (!hero.IsMaiority())
-            {
-                _notification.NewNotificationConflict("O heroi não é maior de idade");
-                return default;
-            }
-
-            var id = _heroRepository.Insert(hero);
-            var heroNew = await GetByIdAsync(id);
-
-            return heroNew;
+        public Task<DashboardTotalReservations> GetTotal()
+        {
+            return _dashboardRepository.GetTotal();
         }
     }
 }

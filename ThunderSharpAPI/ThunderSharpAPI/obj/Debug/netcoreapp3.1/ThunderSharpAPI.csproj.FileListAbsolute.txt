@@ -42,3 +42,43 @@ C:\Users\nathi\source\repos\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp
 C:\Users\nathi\source\repos\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\nathi\source\repos\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\nathi\source\repos\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\obj\Debug\netcoreapp3.1\ThunderSharpAPI.csprojAssemblyReference.cache
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\obj\Debug\netcoreapp3.1\ThunderSharpAPI.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\obj\Debug\netcoreapp3.1\ThunderSharpAPI.pdb
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\obj\Debug\netcoreapp3.1\staticwebassets\ThunderSharpAPI.StaticWebAssets.Manifest.cache
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\obj\Debug\netcoreapp3.1\staticwebassets\ThunderSharpAPI.StaticWebAssets.xml
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\obj\Debug\netcoreapp3.1\ThunderSharpAPI.AssemblyInfoInputs.cache
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\obj\Debug\netcoreapp3.1\ThunderSharpAPI.AssemblyInfo.cs
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\ThunderSharpAPI.exe
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\ThunderSharpAPI.deps.json
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\ThunderSharpAPI.runtimeconfig.json
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\ThunderSharpAPI.runtimeconfig.dev.json
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\ThunderSharpAPI.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\ThunderSharpAPI.pdb
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Thunder.Domain.dll
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\bin\Debug\netcoreapp3.1\Thunder.Domain.pdb
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\obj\Debug\netcoreapp3.1\ThunderSharpAPI.RazorTargetAssemblyInfo.cache
+C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\ThunderSharpAPI\obj\Debug\netcoreapp3.1\ThunderSharpAPI.csproj.CopyComplete

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Thunder.Application.AppThunder.Input;
 using Thunder.Application.AppThunder.Interfaces;
 using Thunder.Domain.Entities;
-using Thunder.Domain.Interfaces.Repository;
+using Thunder.Domain.Interfaces.Repositories;
 
 namespace Thunder.Application.AppThunder
 {

@@ -1,17 +1,18 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Microsoft.Extensions.DependencyInjection;
-
-using Thunder.Domain.Interfaces.Repository;
+using Thunder.Domain.Interfaces.Repositories;
 using Thunder.Infrastructure.Repositories;
 
-namespace Thunder.Infrastructure.Ioc.Application
+namespace Thunder.Infrastructure.Ioc.Repositories
 {
     internal class RepositoryBootstrapper
     {
         internal void ChildServiceRegister(IServiceCollection services)
         {
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IProfileRepository, ProfileRepository>();
             services.AddScoped<IDashboardRepository, DashboardRepository>();
         }
     }

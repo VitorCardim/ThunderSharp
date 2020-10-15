@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Thunder.Application.AppThunder.Input
 {
-    class ProductionInput
+    public class ProductionInput
     {
         public string Name { get; set; }
         //AJUSTAR - para o tipo correto do CPF

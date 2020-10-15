@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using Thunder.Domain.Entities;
-using Thunder.Domain.Interfaces.Repository;
+using Thunder.Domain.Interfaces.Repositories;
 using System.Linq;
 
 namespace Thunder.Infrastructure.Repositories
@@ -73,7 +73,7 @@ namespace Thunder.Infrastructure.Repositories
             }
         }
 
-        public IEnumerable<DashboardMostReservedDays> GetMostReservedDays()
+        public async Task<IEnumerable<DashboardMostReservedDays>> GetMostReservedDays()
         {
             try
             {
@@ -110,7 +110,7 @@ namespace Thunder.Infrastructure.Repositories
 
                         var reader = cmd.ExecuteReader();
 
-                        while (reader.Read())
+                        while (await reader.ReadAsync())
                         {
                             var reservation = new DashboardMostReservedDays(reader["ReservationDay"].ToString(), reader["Quantity"].ToString());
 
@@ -127,7 +127,7 @@ namespace Thunder.Infrastructure.Repositories
             }
         }
 
-        public IEnumerable<DashboardMostReservedActors> GetMostReservedActors()
+        public async Task<IEnumerable<DashboardMostReservedActors>> GetMostReservedActors()
         {
             try
             {
@@ -147,7 +147,7 @@ namespace Thunder.Infrastructure.Repositories
 
                         var reader = cmd.ExecuteReader();
 
-                        while (reader.Read())
+                        while (await reader.ReadAsync())
                         {
                             var actors = new DashboardMostReservedActors(reader["Name"].ToString(), reader["Quantity"].ToString());
 

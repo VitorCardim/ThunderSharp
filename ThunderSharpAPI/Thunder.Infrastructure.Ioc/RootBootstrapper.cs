@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Thunder.Infrastructure.Ioc.Application;
+using Thunder.Infrastructure.Ioc.Repositories;
 
 namespace Thunder.Infrastructure.Ioc
 {
-    public class RootBooststrapper
+    public class RootBootstrapper
     {
         public void RootRegisterServices(IServiceCollection services)
         {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Thunder.Application.AppDashboard.Interfaces;
 using Thunder.Domain.Entities;
-using Thunder.Domain.Interfaces.Repository;
+using Thunder.Domain.Interfaces.Repositories;
 
 namespace Thunder.Application.AppDashboard
 {
@@ -18,24 +18,24 @@ namespace Thunder.Application.AppDashboard
             _dashboardRepository = dashboardRepository;
 
         }
-        public Task<DashboardMyReservations> GetByID(string id)
+        public async Task<DashboardMyReservations> GetByID(string id)
         {
-            return _dashboardRepository.GetByID(id);
+            return await _dashboardRepository.GetByID(id);
         }
 
-        public IEnumerable<DashboardMostReservedActors> GetMostReservedActors()
+        public async Task<IEnumerable<DashboardMostReservedActors>> GetMostReservedActors()
         {
-            return _dashboardRepository.GetMostReservedActors();
+            return await _dashboardRepository.GetMostReservedActors();
         }
 
-        public IEnumerable<DashboardMostReservedDays> GetMostReservedDays()
+        public async Task<IEnumerable<DashboardMostReservedDays>> GetMostReservedDays()
         {
-            return _dashboardRepository.GetMostReservedDays();
+            return await _dashboardRepository.GetMostReservedDays();
         }
 
-        public Task<DashboardTotalReservations> GetTotal()
+        public async Task<DashboardTotalReservations> GetTotal()
         {
-            return _dashboardRepository.GetTotal();
+            return await _dashboardRepository.GetTotal();
         }
     }
 }

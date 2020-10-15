@@ -4,10 +4,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Thunder.Domain.Entities;
 
-namespace Thunder.Domain.Interfaces.Repository
+namespace Thunder.Domain.Interfaces.Repositories
 {
-    public interface IAdmin : IRegister
+    public interface IProfileRepository
     {
-       /* Task<Producer> GetProducer(string token);*/
+        Task<Profile> GetByIdAsync(int id);
     }
 }

@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using Thunder.Domain.Entities;
-using Thunder.Domain.Interfaces.Repository;
+using Thunder.Domain.Interfaces.Repositories;
 
 namespace Thunder.Infrastructure.Repositories
 {

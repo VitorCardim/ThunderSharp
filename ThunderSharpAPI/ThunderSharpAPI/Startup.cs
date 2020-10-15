@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FluentValidation;
 using Marraia.Notifications.Configurations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,6 +20,7 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using Thunder.Domain.Entities;
 using Thunder.Infrastructure.Ioc;
+using ThunderSharpAPI.SignIn;
 
 namespace ThunderSharpAPI
 {
@@ -32,12 +34,49 @@ namespace ThunderSharpAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            
             services.AddControllers();
+            services.AddOptions();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                       builder =>
+                       builder.AllowAnyOrigin()
+                              .AllowAnyMethod()
+                              .AllowAnyHeader());
+            });
+
             services.AddControllers().AddNewtonsoftJson();
             services.AddTransient<IValidator<Register>, RegisterValidation>();
 
-            
+            var signingConfigurations = new SigningConfigurations();
+            services.AddSingleton(signingConfigurations);
+
+            services.AddAuthentication(authOptions =>
+            {
+                authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                authOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidIssuer = Configuration["TokenIssuer"],
+                    ValidAudience = Configuration["TokenAudience"],
+                    IssuerSigningKey = signingConfigurations.Key,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
+
+            services.AddAuthorization(auth =>
+            {
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                    .RequireAuthenticatedUser().Build());
+            });
+
             services.AddSwaggerGen(x =>
             {
                 x.SwaggerDoc("v1", new OpenApiInfo
@@ -59,23 +98,13 @@ namespace ThunderSharpAPI
             {
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
-            var SymmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("Key")));
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(x => {
-                x.RequireHttpsMetadata = false;
-                x.SaveToken = true;
-                x.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = SymmetricSecurityKey,
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                };
-            });
+            
+
+            
+
+            services.AddSmartNotification();
+            RegisterServices(services);
+
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -101,7 +130,7 @@ namespace ThunderSharpAPI
         }
         void RegisterServices(IServiceCollection services)
         {
-            new RootBooststrapper().RootRegisterServices(services);
+            new RootBootstrapper().RootRegisterServices(services);
         }
     }
 }

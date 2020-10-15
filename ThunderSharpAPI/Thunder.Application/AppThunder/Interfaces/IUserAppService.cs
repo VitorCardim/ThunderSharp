@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Thunder.Application.AppThunder.Input;
-using Thunder.Domain.Entities;
+using Thunder.Application.AppThunder.Output;
 
 namespace Thunder.Application.AppThunder.Interfaces
 {
-    interface IProducerAppService
+    public interface IUserAppService
     {
-        Task<Producer> SignUP(UserInput user);
+        Task<UserViewModel> InsertAsync(UserInput user);
     }
 }

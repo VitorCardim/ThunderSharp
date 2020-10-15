@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ThunderSharpAPI",
-    "\\ThunderSharpAPI\\Thunder.Application\\AppDashboard\\Interfaces",
-    "\\ThunderSharpAPI\\Thunder.Application\\AppThunder\\Interfaces",
-    "\\ThunderSharpAPI\\Thunder.Domain",
-    "\\ThunderSharpAPI\\Thunder.Domain\\Interfaces\\Repository",
-    "\\ThunderSharpAPI\\Thunder.Infrastructure\\bin\\Release"
+    "\\ThunderSharpAPI"
   ],
   "SelectedNode": "\\ThunderSharpAPI\\ThunderSharpAPI.sln",
   "PreviewInSolutionExplorer": false

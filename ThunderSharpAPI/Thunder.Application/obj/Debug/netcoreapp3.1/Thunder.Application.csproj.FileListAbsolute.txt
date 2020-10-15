@@ -1,8 +1,0 @@
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Application\bin\Debug\netcoreapp3.1\Thunder.Application.deps.json
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Application\bin\Debug\netcoreapp3.1\Thunder.Application.dll
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Application\bin\Debug\netcoreapp3.1\Thunder.Domain.dll
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Application\bin\Debug\netcoreapp3.1\Thunder.Domain.pdb
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Application\obj\Debug\netcoreapp3.1\Thunder.Application.csprojAssemblyReference.cache
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Application\obj\Debug\netcoreapp3.1\Thunder.Application.AssemblyInfoInputs.cache
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Application\obj\Debug\netcoreapp3.1\Thunder.Application.AssemblyInfo.cs
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Application\obj\Debug\netcoreapp3.1\Thunder.Application.csproj.CopyComplete

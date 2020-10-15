@@ -1,5 +1,0 @@
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Infrastructure.Ioc\bin\Debug\netcoreapp3.1\Thunder.Infrastructure.Ioc.deps.json
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Infrastructure.Ioc\bin\Debug\netcoreapp3.1\Thunder.Infrastructure.Ioc.dll
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Infrastructure.Ioc\obj\Debug\netcoreapp3.1\Thunder.Infrastructure.Ioc.csprojAssemblyReference.cache
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Infrastructure.Ioc\obj\Debug\netcoreapp3.1\Thunder.Infrastructure.Ioc.AssemblyInfoInputs.cache
-C:\Users\Vitor Cardim\ThunderSharp\ThunderSharpAPI\Thunder.Infrastructure.Ioc\obj\Debug\netcoreapp3.1\Thunder.Infrastructure.Ioc.AssemblyInfo.cs

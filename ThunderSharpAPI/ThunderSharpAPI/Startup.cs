@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentValidation;
+using Marraia.Notifications.Configurations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,7 +18,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using Thunder.Domain.Entities;
-
+using Thunder.Infrastructure.Ioc;
 
 namespace ThunderSharpAPI
 {
@@ -49,7 +50,10 @@ namespace ThunderSharpAPI
                         Name = "Nathiel, Gerson, Victor"
                     }
                 });
+                services.AddSmartNotification();
+                RegisterServices(services);
             });
+
 
             services.AddControllers().AddNewtonsoftJson(options =>
             {
@@ -94,6 +98,10 @@ namespace ThunderSharpAPI
             {
                 x.SwaggerEndpoint("/swagger/v1/swagger.json", "ThuderSharp");
             });
+        }
+        void RegisterServices(IServiceCollection services)
+        {
+            new RootBooststrapper().RootRegisterServices(services);
         }
     }
 }

@@ -14,6 +14,8 @@ namespace Thunder.Infrastructure.Ioc.Repositories
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IProfileRepository, ProfileRepository>();
             services.AddScoped<IDashboardRepository, DashboardRepository>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<IReservationRepository, ReservationRepository>();
         }
     }
 }

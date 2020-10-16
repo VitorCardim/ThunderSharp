@@ -8,7 +8,7 @@ namespace Thunder.Domain.Interfaces.Repositories
 {
     public interface IProductionRepository
     {
-        int Insert(Production production);
+        Task<int> InsertAsync(Production production);
         Task<Production> GetByID(int id);
         IEnumerable<Production> Get();
     }

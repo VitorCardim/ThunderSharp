@@ -23,7 +23,7 @@ namespace Thunder.Infrastructure.Repositories
 
             try
             {
-                using (var con = new SqlConnection(_configuration["ConnectionString"]))
+                using (var con = new SqlConnection(_configuration["DefaultConnection"]))
                 {
                     var productionList = new List<Production>();
                     var sqlCmd = @"SELECT Id, Name, PersonId, Created, Updated FROM Production";
@@ -38,7 +38,7 @@ namespace Thunder.Infrastructure.Repositories
                         {
                             var production = new Production(int.Parse(reader["id"].ToString()),
                                                             reader["name"].ToString(),
-                                                            int.Parse(reader["PersonId"].ToString()),
+                                                            new User(int.Parse(reader["PersonId"].ToString())),
                                                             DateTime.Parse(reader["created"].ToString()),
                                                             DateTime.Parse(reader["updated"].ToString()));
 
@@ -60,7 +60,7 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using (var con = new SqlConnection(_configuration["ConnectionString"]))
+                using (var con = new SqlConnection(_configuration["DefaultConnection"]))
                 {
                     var sqlCmd = $@"SELECT Id, Name, PersonId, Created, Updated FROM Production where id = {id}";
 
@@ -77,7 +77,7 @@ namespace Thunder.Infrastructure.Repositories
                         {
                             var production = new Production(int.Parse(reader["id"].ToString()),
                                                             reader["name"].ToString(),
-                                                            int.Parse(reader["PersonId"].ToString()),
+                                                            new User(int.Parse(reader["PersonId"].ToString())),
                                                             DateTime.Parse(reader["created"].ToString()),
                                                             DateTime.Parse(reader["updated"].ToString()));
                                 
@@ -95,15 +95,16 @@ namespace Thunder.Infrastructure.Repositories
             }
         }
 
-        public int Insert(Production production)
+
+        public async Task<int> InsertAsync(Production production)
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = @"INSERT INTO Production
                                (Name, PersonId, Created, Updated) 
                                VALUES 
-                               (@Name, @PersonId, @Created, @Updated);";
+                               (@Name, @PersonId, @Created, @Updated); SELECT scope_identity();";
 
                 using SqlCommand cmd = new SqlCommand(sqlCmd, con)
                 {
@@ -115,8 +116,8 @@ namespace Thunder.Infrastructure.Repositories
                 cmd.Parameters.AddWithValue("Create", production.Created);
                 cmd.Parameters.AddWithValue("Updated", production.Updated);
 
-                con.Open();
-                var id = cmd.ExecuteScalar();
+                await con.OpenAsync();
+                var id = await cmd.ExecuteScalarAsync().ConfigureAwait(false);
 
                 return int.Parse(id.ToString());
             }

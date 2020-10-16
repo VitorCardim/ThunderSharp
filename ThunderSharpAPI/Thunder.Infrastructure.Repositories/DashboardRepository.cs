@@ -20,7 +20,7 @@ namespace Thunder.Infrastructure.Repositories
             _configuration = configuration;
         }
 
-        public async Task<DashboardMyReservations> GetByID(string id)
+        public async Task<DashboardMyReservations> GetByID(int id)
         {
             try
             {

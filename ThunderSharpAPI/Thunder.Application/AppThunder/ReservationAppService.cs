@@ -45,11 +45,11 @@ namespace Thunder.Application.AppThunder
             }
 
 
-            var Reserv = new Reservation(reservation.Id, user.id,reservation.Created,reservation.InitialDate,reservation.FinalDate);
-            if (Reserv.IsValid())
-            {
-                return null;
-            }
+            //var Reserv = new Reservation(reservation.Id, user.id,reservation.Created,reservation.InitialDate,reservation.FinalDate);
+            //if (Reserv.IsValid())
+            //{
+            //    return null;
+            //}
             return null;
 
         }

@@ -8,6 +8,6 @@ namespace Thunder.Domain.Interfaces.Repositories
 {
     public interface IGenreRepository
     {
-        Task<Profile> GetByIdAsync(int id);
+        Task<Genre> GetByIdAsync(int id);
     }
 }

@@ -8,6 +8,6 @@ namespace Thunder.Application.AppThunder.Interfaces
 {
     public interface IRegisterAppService
     {
-        Task<int> Register(string Name, string Email, string Password, string Age, string CPF, string PhoneNumber,string IdProfile,decimal fee);
+        Task<int> Register(string Name, string Email, string Password, string Age, string PhoneNumber,string IdProfile,decimal fee);
     }
 }

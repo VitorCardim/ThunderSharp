@@ -6,7 +6,6 @@ namespace Thunder.Application.AppThunder.Input
 {
     public class RegisterInput
     {
-        public string CPF { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Age { get; set; }

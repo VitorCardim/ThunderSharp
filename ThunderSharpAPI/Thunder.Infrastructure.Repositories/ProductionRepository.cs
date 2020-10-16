@@ -10,7 +10,7 @@ using Thunder.Domain.Interfaces.Repositories;
 
 namespace Thunder.Infrastructure.Repositories
 {
-    class ProductionRepository : IProductionRepository
+    public class ProductionRepository : IProductionRepository
     {
         private readonly IConfiguration _configuration;
         public ProductionRepository(IConfiguration configuration)

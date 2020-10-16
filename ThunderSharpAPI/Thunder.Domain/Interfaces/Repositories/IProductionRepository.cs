@@ -11,6 +11,5 @@ namespace Thunder.Domain.Interfaces.Repositories
         int Insert(Production production);
         Task<Production> GetByID(int id);
         IEnumerable<Production> Get();
-
     }
 }

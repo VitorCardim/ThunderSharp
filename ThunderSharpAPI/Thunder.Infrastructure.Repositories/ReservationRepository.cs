@@ -54,26 +54,26 @@ namespace Thunder.Infrastructure.Repositories
 
                 while (reader.Read())
                 {
-                    var reservation = new Reservation(
-                                        int.Parse(reader["Id"].ToString().ToString()),
-                                        new User(reader["PersonId"].ToString(),
-                                                 reader["Name"].ToString(),
-                                                 reader["Email"].ToString(),
-                                                 reader["Age"].ToString(),
-                                                 reader["PhoneNumber"].ToString(),
-                                                 reader["Password"].ToString(),
-                                                 new Profile(
-                                                            int.Parse(reader["ProfileId"].ToString()), 
-                                                            reader["Label"].ToString())),
-                                        new Production(int.Parse(reader["ProductionId"].ToString()),
-                                                       reader["ProductionName"].ToString(),
-                                                       int.Parse(reader["PersonId"].ToString()),
-                                                       DateTime.Parse(reader["ProductionCreated"].ToString()),
-                                                       DateTime.Parse(reader["ProductionUpdated"].ToString())),
-                                        DateTime.Parse(reader["Created"].ToString()),
-                                        DateTime.Parse(reader["InicialDate"].ToString()),
-                                        DateTime.Parse(reader["FinalDate"].ToString()));
-                    return reservation;
+                    //var reservation = new Reservation(
+                    //                    int.Parse(reader["Id"].ToString().ToString()),
+                    //                    new User(reader["PersonId"].ToString(),
+                    //                             reader["Name"].ToString(),
+                    //                             reader["Email"].ToString(),
+                    //                             reader["Age"].ToString(),
+                    //                             reader["PhoneNumber"].ToString(),
+                    //                             reader["Password"].ToString(),
+                    //                             new Profile(
+                    //                                        int.Parse(reader["ProfileId"].ToString()), 
+                    //                                        reader["Label"].ToString())),
+                    //                    new Production(int.Parse(reader["ProductionId"].ToString()),
+                    //                                   reader["ProductionName"].ToString(),
+                    //                                   int.Parse(reader["PersonId"].ToString()),
+                    //                                   DateTime.Parse(reader["ProductionCreated"].ToString()),
+                    //                                   DateTime.Parse(reader["ProductionUpdated"].ToString())),
+                    //                    DateTime.Parse(reader["Created"].ToString()),
+                    //                    DateTime.Parse(reader["InicialDate"].ToString()),
+                    //                    DateTime.Parse(reader["FinalDate"].ToString()));
+                    //return reservation;
                 }
 
                 return default;

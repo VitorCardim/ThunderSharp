@@ -45,13 +45,13 @@ namespace Thunder.Infrastructure.Repositories
 
                 while (reader.Read())
                 {
-                    var user = new User(reader["CPF"].ToString(),
-                                        reader["Name"].ToString(),
+                    var user = new User(reader["Name"].ToString(),
                                         reader["Email"].ToString(),
                                         reader["Age"].ToString(),
                                         reader["PhoneNumber"].ToString(),
                                         reader["Password"].ToString(),
-                                        new Profile(int.Parse(reader["ProfileId"].ToString()), reader["Label"].ToString()));
+                                        new Profile(int.Parse(reader["ProfileId"].ToString()), reader["Label"].ToString()),
+                                        decimal.Parse(reader["Fee"].ToString()));
                     return user;
                 }
 
@@ -69,7 +69,7 @@ namespace Thunder.Infrastructure.Repositories
             {
                 using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = @"INSERT INTO 
-                                    Person (CPF,
+                                    Person (
                                             Name, 
                                             Email, 
                                             Age,
@@ -80,7 +80,7 @@ namespace Thunder.Infrastructure.Repositories
                                             Created,
                                             Updated) 
 
-                                    VALUES (@CPF,
+                                    VALUES (
                                             @Name, 
                                             @Email, 
                                             @Age, 
@@ -90,14 +90,13 @@ namespace Thunder.Infrastructure.Repositories
                                             @Fee,
                                             @Created,
                                             @Updated
-                                        ); SELECT @@identity;";
+                                        ); SELECT scope_identity();";
 
                 using SqlCommand cmd = new SqlCommand(sqlCmd, con);
                 cmd.CommandType = CommandType.Text;
 
                 cmd.Parameters.AddWithValue("ProfileId", user.Profile.Id);
                 cmd.Parameters.AddWithValue("Name", user.Name);
-                cmd.Parameters.AddWithValue("CPF", user.CPF);
                 cmd.Parameters.AddWithValue("Email", user.Email);
                 cmd.Parameters.AddWithValue("Age", user.Age);
                 cmd.Parameters.AddWithValue("PhoneNumber", user.PhoneNumber);
@@ -145,13 +144,13 @@ namespace Thunder.Infrastructure.Repositories
 
                 while (reader.Read())
                 {
-                    var user = new User(reader["CPF"].ToString(),
-                                        reader["Name"].ToString(),
+                    var user = new User(reader["Name"].ToString(),
                                         reader["Email"].ToString(),
                                         reader["Age"].ToString(),
                                         reader["PhoneNumber"].ToString(),
                                         reader["Password"].ToString(),
-                                        new Profile(int.Parse(reader["ProfileId"].ToString()), reader["Label"].ToString()));
+                                        new Profile(int.Parse(reader["ProfileId"].ToString()),
+                                        reader["Label"].ToString()),decimal.Parse(reader["Fee"].ToString()));
                     return user;
                 }
 

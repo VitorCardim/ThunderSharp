@@ -43,10 +43,10 @@ namespace ThunderSharpAPI.Controllers.v1
             try
             {
                 var result = await _registerAppService.Register(register.Name, register.Email, register.Password,
-                    register.Age,register.CPF,register.PhoneNumber,register.IdProfile,register.Fee);
+                    register.Age,register.PhoneNumber,register.IdProfile,register.Fee);
                 if(result > 0)
                 {
-                    return Ok(result);
+                    return Ok();
                 }
                 return OkOrNoContent(_notificationHandler.GetNotifications());
 

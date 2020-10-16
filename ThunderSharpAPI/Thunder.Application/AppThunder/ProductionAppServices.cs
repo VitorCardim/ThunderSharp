@@ -9,7 +9,7 @@ using Thunder.Domain.Interfaces.Repositories;
 
 namespace Thunder.Application.AppThunder
 {
-    class ProductionAppServices : IProductionAppServices
+    public class ProductionAppServices : IProductionAppServices
     {
         private readonly IProductionRepository _productionRepository;
 

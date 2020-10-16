@@ -21,12 +21,12 @@ namespace Thunder.Application.AppThunder
             _profileRepository = ProfileRepository;
         }
 
-        public async Task<int> Register(string Name, string Email, string Password, string Age, string CPF, string PhoneNumber, string IdProfile, decimal fee)
+        public async Task<int> Register(string Name, string Email, string Password, string Age, string PhoneNumber, string IdProfile, decimal fee)
         {
             var profile = await _profileRepository.GetByIdAsync(int.Parse(IdProfile));
             if(profile != null)
             {
-                var User = new User(CPF, Name, Email, Age, PhoneNumber, Password, profile, fee);
+                var User = new User( Name, Email, Age, PhoneNumber, Password, profile, fee);
                 if (User.IsValid())
                 {
                     var user = await _userRepository.InsertUserAsync(User);

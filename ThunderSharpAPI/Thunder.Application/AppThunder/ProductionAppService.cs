@@ -30,7 +30,7 @@ namespace Thunder.Application.AppThunder
 
         public async Task<Production> Insert(ProductionInput input)
         {
-            var production = new Production(input.Name, input.CPF, input.Created, input.Updated);
+            var production = new Production(input.Name, input.PersonId, input.Created, input.Updated);
 
             //validações
 

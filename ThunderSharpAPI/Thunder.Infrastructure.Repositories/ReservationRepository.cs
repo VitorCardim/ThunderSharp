@@ -68,7 +68,7 @@ namespace Thunder.Infrastructure.Repositories
                                                  decimal.Parse(reader["Fee"].ToString())),
                                                  new Production(int.Parse(reader["ProductionId"].ToString()),
                                                                           reader["ProductionName"].ToString(),
-                                                                          int.Parse(reader["PersonId"].ToString()),
+                                                                          new User(int.Parse(reader["PersonId"].ToString())),
                                                                           DateTime.Parse(reader["ProductionCreated"].ToString()),
                                                                           DateTime.Parse(reader["ProductionUpdated"].ToString())),
                                         DateTime.Parse(reader["Created"].ToString()),

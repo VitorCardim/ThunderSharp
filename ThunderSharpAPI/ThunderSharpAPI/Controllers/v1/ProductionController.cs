@@ -26,13 +26,31 @@ namespace ThunderSharpAPI.Controllers.v1
         private readonly IProductionAppService _productionappservice;
 
 
-        public ProductionController(INotificationHandler<DomainNotification> notification, 
-                                    IConfiguration configuration, IProductionAppService productionappservice):base(notification)
+        public ProductionController(INotificationHandler<DomainNotification> notification,
+                                    IConfiguration configuration, IProductionAppService productionappservice) : base(notification)
         {
             _configuration = configuration;
             _notificationHandler = (DomainNotificationHandler)notification;
             _productionappservice = productionappservice;
 
+        }
+
+        [HttpGet] //api/Production
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> Get()
+        {
+            return OkOrNoContent( await _productionappservice.Get());
+        }
+
+        [HttpGet("{id}")] //api/Production
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> GetByID([FromRoute] int id)
+        {
+            return OkOrNoContent(await _productionappservice.GetById(id).ConfigureAwait(false));
         }
 
         [AllowAnonymous]

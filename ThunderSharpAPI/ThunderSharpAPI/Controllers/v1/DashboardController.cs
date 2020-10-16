@@ -22,17 +22,23 @@ namespace ThunderSharpAPI.Controllers.v1
         }
 
         [Authorize(Roles = "Productor")]
-        [HttpGet("{id}")] //api/Dashboard
+        [HttpGet("dashboard/{id}")] //api/Dashboard
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
 
-        public async Task<IActionResult> GetByID([FromRoute] string id)
+        public async Task<IActionResult> GetByID([FromRoute] int id)
         { 
             return OkOrNoContent(await _dashboardService
                 .GetByID(id)
                 .ConfigureAwait(false));
         }
+
+        [Authorize(Roles = "Productor")]
+        [HttpGet("dashboard/{id}/total")] //api/Dashboard
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetTotal() 
         {
             return OkOrNoContent( await _dashboardService.GetTotal());

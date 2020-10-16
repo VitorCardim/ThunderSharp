@@ -7,7 +7,7 @@ namespace Thunder.Application.AppThunder.Output
 {
     public class UserViewModel
     {
-        public UserViewModel(string cpf, string name, string email, string age, string phoneNumber, Profile profile)
+        public UserViewModel(string cpf, string name, string email, string age, string phoneNumber, Profile profile,decimal fee)
         {
             CPF = cpf;
             Name = name;
@@ -15,9 +15,11 @@ namespace Thunder.Application.AppThunder.Output
             Age = age;
             PhoneNumber = phoneNumber;
             Profile = profile;
+            Fee = fee;
         }
 
         public string CPF { get; set; }
+        public decimal Fee { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Age { get; set; }

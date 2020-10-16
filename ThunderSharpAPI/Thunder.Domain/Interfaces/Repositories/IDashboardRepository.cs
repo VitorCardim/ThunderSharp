@@ -8,7 +8,7 @@ namespace Thunder.Domain.Interfaces.Repositories
 {
     public interface IDashboardRepository
     {
-        Task<DashboardMyReservations> GetByID(string id);
+        Task<DashboardMyReservations> GetByID(int id);
         
         Task<DashboardTotalReservations> GetTotal();
 

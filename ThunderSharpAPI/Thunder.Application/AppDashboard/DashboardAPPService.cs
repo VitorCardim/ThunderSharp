@@ -18,7 +18,7 @@ namespace Thunder.Application.AppDashboard
             _dashboardRepository = dashboardRepository;
 
         }
-        public async Task<DashboardMyReservations> GetByID(string id)
+        public async Task<DashboardMyReservations> GetByID(int id)
         {
             return await _dashboardRepository.GetByID(id);
         }

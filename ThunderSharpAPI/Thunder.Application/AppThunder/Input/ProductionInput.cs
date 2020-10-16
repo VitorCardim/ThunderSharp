@@ -8,7 +8,7 @@ namespace Thunder.Application.AppThunder.Input
     {
         public string Name { get; set; }
         //AJUSTAR - para o tipo correto do CPF
-        public string CPF { get; set; }
+        public int PersonId { get; set; }
         public DateTime Created { get; set; }
         public DateTime Updated { get; set; }
     }

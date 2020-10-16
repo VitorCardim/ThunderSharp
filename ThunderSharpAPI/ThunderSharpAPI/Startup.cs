@@ -49,7 +49,7 @@ namespace ThunderSharpAPI
             services.AddControllers().AddNewtonsoftJson();
 
             services.AddTransient<IValidator<Login>, LoginValidator>();
-
+            #region autenti
             var signingConfigurations = new SigningConfigurations();
             services.AddSingleton(signingConfigurations);
 
@@ -76,6 +76,8 @@ namespace ThunderSharpAPI
                     .RequireAuthenticatedUser().Build());
             });
 
+            #endregion
+
             services.AddSwaggerGen(x =>
             {
                 x.SwaggerDoc("v1", new OpenApiInfo
@@ -88,10 +90,7 @@ namespace ThunderSharpAPI
                         Name = "Nathiel, Gerson, Victor"
                     }
                 });
-                services.AddSmartNotification();
             });
-
-            RegisterServices(services);
 
             services.AddControllers().AddNewtonsoftJson(options =>
             {

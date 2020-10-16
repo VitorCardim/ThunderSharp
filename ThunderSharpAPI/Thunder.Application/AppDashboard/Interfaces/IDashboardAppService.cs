@@ -8,7 +8,7 @@ namespace Thunder.Application.AppDashboard.Interfaces
 {
     public interface IDashboardAppService
     {
-        Task<DashboardMyReservations> GetByID(string id); /* waiting for method from Person */
+        Task<DashboardMyReservations> GetByID(int id); /* waiting for method from Person */
 
         Task<DashboardTotalReservations> GetTotal();
 

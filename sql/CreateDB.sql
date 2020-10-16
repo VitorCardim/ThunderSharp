@@ -1,5 +1,6 @@
 CREATE DATABASE TV;
-use TV;
+
+
 
 /* Drops Table
 Drop table Reservation;

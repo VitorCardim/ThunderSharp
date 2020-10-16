@@ -17,6 +17,8 @@ using Thunder.Application.AppThunder.Input;
 
 namespace ThunderSharpAPI.Controllers.v1
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class ProductionController : BaseController
     {
         private readonly DomainNotificationHandler _notificationHandler;

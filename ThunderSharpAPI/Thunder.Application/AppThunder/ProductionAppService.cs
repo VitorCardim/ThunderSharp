@@ -9,11 +9,11 @@ using Thunder.Domain.Interfaces.Repositories;
 
 namespace Thunder.Application.AppThunder
 {
-    public class ProductionAppServices : IProductionAppService
+    public class ProductionAppService : IProductionAppService
     {
         private readonly IProductionRepository _productionRepository;
 
-        public ProductionAppServices(IProductionRepository productionRepository)
+        public ProductionAppService(IProductionRepository productionRepository)
         {
             _productionRepository = productionRepository;
         }
@@ -49,6 +49,7 @@ namespace Thunder.Application.AppThunder
                 }
 
             }
+            return 0;
         }
     }
 }

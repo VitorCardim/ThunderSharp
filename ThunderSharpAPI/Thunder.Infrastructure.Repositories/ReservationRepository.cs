@@ -23,7 +23,7 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = @$"SELECT     R.Id, 
                                            R.PersonId,
                                            R.ProductionId,
@@ -89,7 +89,7 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = @"INSERT INTO 
                                     Reservation (PersonId,
                                                  ProductionId, 
@@ -128,7 +128,7 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = @$"DELETE 
                                 FROM Reservation
                                 WHERE Reservation.Id ='{reservation.Id}';"

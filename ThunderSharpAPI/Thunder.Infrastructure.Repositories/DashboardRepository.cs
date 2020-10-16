@@ -20,15 +20,15 @@ namespace Thunder.Infrastructure.Repositories
             _configuration = configuration;
         }
 
-        public async Task<DashboardMyReservations> GetByID(string id)
+        public async Task<DashboardMyReservations> GetByID(int id)
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = @$"SELECT COUNT(R.id) 
                                 FROM RESERVATION R
                                 JOIN PRODUCTION P ON P.id = R.ProductionId
-                                WHERE P.CPF = '{id}';";
+                                WHERE P.PersonId = '{id}';";
 
                 using SqlCommand cmd = new SqlCommand(sqlCmd, con)
                 {
@@ -50,7 +50,7 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = @$"SELECT COUNT(R.id) 
                                 FROM RESERVATION R
                                 JOIN PRODUCTION P ON P.id = R.ProductionId;";
@@ -77,13 +77,13 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 {
                     var reservationTopList = new List<DashboardMostReservedDays>();
                     var sqlCmd = @$"create Table #tmpDashboard (Quantity int, ReservationDay date)
-                            declare @Initialday date = (Select Top 1 Reservation.InitalDate
+                            declare @Initialday date = (Select Top 1 Reservation.InitialDate
                                                         From Reservation
-                                                        order by Reservation.InitalDate asc);
+                                                        order by Reservation.InitialDate asc);
                             declare @Lastday date = (Select Top 1 Reservation.FinalDate
                                                      From Reservation
                                                      order by Reservation.FinalDate desc);
@@ -92,7 +92,7 @@ namespace Thunder.Infrastructure.Repositories
                                 Begin
                                     Insert into #tmpDashboard (Quantity,ReservationDay) values ((Select count(Reservation.Id) 
                                                                                                  From Reservation 
-                                                                                                 where Reservation.InitalDate <= @Initialday 
+                                                                                                 where Reservation.InitialDate <= @Initialday 
                                                                                                  and @Initialday <= Reservation.FinalDate), @Initialday)
                                     IF @Initialday = @Lastday
                                         Break;
@@ -131,13 +131,13 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 {
                     var actorsTopList = new List<DashboardMostReservedActors>();
-                    var sqlCmd = @$"SELECT COUNT(R.CPF) as Quantity, P.Name as Name
+                    var sqlCmd = @$"SELECT COUNT(R.PersonId) as Quantity, P.Name
                                 FROM Reservation R
-                                JOIN Person P ON P.CPF = R.CPF
-                                GROUP BY Person.CPF
+                                JOIN Person P ON P.Id = R.PersonId
+                                GROUP BY P.Name
                                 ORDER BY Quantity DESC;";
 
                     using (SqlCommand cmd = new SqlCommand(sqlCmd, con))

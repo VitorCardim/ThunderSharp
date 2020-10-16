@@ -9,8 +9,9 @@ namespace Thunder.Application.AppThunder.Interfaces
 {
     public interface IProductionAppService
     {
-        Task<Production> Insert(ProductionInput production);
-        Task<Production> GetByID(int id);
+        //Task<int> InsertAsync(ProductionInput productinput);
+        Task<Production> GetById(int id);
         IEnumerable<Production> Get();
+        Task<int> InsertAsync(string Name, int PersonId, DateTime Created, DateTime Updated);
     }
 }

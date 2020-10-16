@@ -23,7 +23,9 @@ namespace Thunder.Application.AppThunder
 
         public async Task<int> Register(string Name, string Email, string Password, string Age, string PhoneNumber, string IdProfile, decimal fee)
         {
+           
             var profile = await _profileRepository.GetByIdAsync(int.Parse(IdProfile));
+            
             if(profile != null)
             {
                 var User = new User( Name, Email, Age, PhoneNumber, Password, profile, fee);

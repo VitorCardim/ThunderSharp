@@ -9,11 +9,11 @@ using Thunder.Domain.Interfaces.Repositories;
 
 namespace Thunder.Application.AppThunder
 {
-    public class ProductionAppService : IProductionAppService
+    public class ProductionAppServices : IProductionAppService
     {
         private readonly IProductionRepository _productionRepository;
 
-        public ProductionAppService(IProductionRepository productionRepository)
+        public ProductionAppServices(IProductionRepository productionRepository)
         {
             _productionRepository = productionRepository;
         }
@@ -23,25 +23,34 @@ namespace Thunder.Application.AppThunder
             return _productionRepository.Get();
         }
 
-        public async Task<Production> GetByID(int id)
+        public async Task<Production> GetById(int id)
         {
             return await _productionRepository.GetByID(id).ConfigureAwait(false);
         }
 
-        public async Task<Production> Insert(ProductionInput input)
+        public async Task<int> InsertAsync(string Name, int PersonId, DateTime Created, DateTime Updated)
         {
-            var production = new Production(input.Name, input.PersonId, input.Created, input.Updated);
+            var person = await _productionRepository.GetByID(PersonId);
 
-            //validações
+            if (person != null)
+            {
 
-            var id = _productionRepository.Insert(production);
-            var productionNew = await GetByID(id);
+                var Production = new Production(Name, PersonId, Created, Updated);
 
-            return productionNew;
+                if (Production.isValid())
+                {
+                    var production = await _productionRepository.InsertAsync(Production);
+
+                    if (production > 0)
+                    {
+                        return production;
+                    }
+
+                }
+
+            }
         }
-
     }
-    
 }
 
 

@@ -14,7 +14,7 @@ namespace Thunder.Domain.Entities
             Id = id;
             User = user;
             Production = production;
-            Created = created;
+            Created = DateTime.Now;
             InitialDate = initialdate;
             FinalDate = finaldate;
         }

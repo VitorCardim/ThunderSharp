@@ -26,7 +26,7 @@ namespace Thunder.Infrastructure.Repositories
                 using (var con = new SqlConnection(_configuration["ConnectionString"]))
                 {
                     var productionList = new List<Production>();
-                    var sqlCmd = @"SELECT Id, Name, Cpf, Created, Updated FROM Production";
+                    var sqlCmd = @"SELECT Id, Name, PersonId, Created, Updated FROM Production";
 
                     using (SqlCommand cmd = new SqlCommand(sqlCmd, con))
                     {
@@ -36,9 +36,9 @@ namespace Thunder.Infrastructure.Repositories
 
                         while (reader.Read())
                         {
-                            var production = new Production(Guid.Parse(reader["id"].ToString()),
+                            var production = new Production(int.Parse(reader["id"].ToString()),
                                                             reader["name"].ToString(),
-                                                            reader["cpf"].ToString(),
+                                                            int.Parse(reader["PersonId"].ToString()),
                                                             DateTime.Parse(reader["created"].ToString()),
                                                             DateTime.Parse(reader["updated"].ToString()));
 
@@ -62,7 +62,7 @@ namespace Thunder.Infrastructure.Repositories
             {
                 using (var con = new SqlConnection(_configuration["ConnectionString"]))
                 {
-                    var sqlCmd = $@"SELECT Id, Name, Cpf, Created, Updated FROM Production where id = {id}";
+                    var sqlCmd = $@"SELECT Id, Name, PersonId, Created, Updated FROM Production where id = {id}";
 
                     using (SqlCommand cmd = new SqlCommand(sqlCmd, con))
                     {
@@ -75,9 +75,9 @@ namespace Thunder.Infrastructure.Repositories
 
                         while (reader.Read())
                         {
-                            var production = new Production(Guid.Parse(reader["id"].ToString()),
+                            var production = new Production(int.Parse(reader["id"].ToString()),
                                                             reader["name"].ToString(),
-                                                            reader["cpf"].ToString(),
+                                                            int.Parse(reader["PersonId"].ToString()),
                                                             DateTime.Parse(reader["created"].ToString()),
                                                             DateTime.Parse(reader["updated"].ToString()));
                                 
@@ -101,9 +101,9 @@ namespace Thunder.Infrastructure.Repositories
             {
                 using var con = new SqlConnection(_configuration["ConnectionString"]);
                 var sqlCmd = @"INSERT INTO Production
-                               (Name, CPF, Created, Updated) 
+                               (Name, PersonId, Created, Updated) 
                                VALUES 
-                               (@Name, @Cpf, @Created, @Updated);";
+                               (@Name, @PersonId, @Created, @Updated);";
 
                 using SqlCommand cmd = new SqlCommand(sqlCmd, con)
                 {
@@ -111,7 +111,7 @@ namespace Thunder.Infrastructure.Repositories
                 };
 
                 cmd.Parameters.AddWithValue("Name", production.Name);
-                cmd.Parameters.AddWithValue("Cpf", production.CPF);
+                cmd.Parameters.AddWithValue("PersonId", production.PersonId);
                 cmd.Parameters.AddWithValue("Create", production.Created);
                 cmd.Parameters.AddWithValue("Updated", production.Updated);
 

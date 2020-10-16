@@ -27,7 +27,7 @@ namespace Thunder.Application.AppThunder
             _notification = Notification;
             
         }
-        public async Task<ReservationViewModel> InsertAsync(ReservationInput reservation)
+        public async Task<int> InsertAsync(ReservationInput reservation)
         {
             var production = await _productionRepository.GetByID(reservation.ProductionId);
 
@@ -36,6 +36,7 @@ namespace Thunder.Application.AppThunder
                 _notification.NewNotificationBadRequest("Production doesn't exist to create a Reservation!");
                 return default;
             }
+            
             var user = await _userRepository.GetUserByIdAsync(reservation.UserId);
 
             if (user == null)
@@ -45,12 +46,14 @@ namespace Thunder.Application.AppThunder
             }
 
 
-            //var Reserv = new Reservation(reservation.Id, user.id,reservation.Created,reservation.InitialDate,reservation.FinalDate);
-            //if (Reserv.IsValid())
-            //{
-            //    return null;
-            //}
-            return null;
+            var reserv = new Reservation(reservation.Id, user, production, reservation.Created, reservation.InitialDate, reservation.FinalDate);
+            if (reserv.IsValid())
+            {
+                return await _reservationRepository.InsertReservationAsync(reserv);
+            }
+
+            return 0;
+  
 
         }
     }

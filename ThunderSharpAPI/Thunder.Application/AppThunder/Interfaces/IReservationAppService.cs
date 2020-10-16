@@ -9,6 +9,6 @@ namespace Thunder.Application.AppThunder.Interfaces
 {
     public interface IReservationAppService
     {
-        Task<ReservationViewModel> InsertAsync(ReservationInput reservation);
+        Task<int> InsertAsync(ReservationInput reservation);
     }
 }

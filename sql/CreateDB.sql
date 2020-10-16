@@ -1,7 +1,5 @@
 CREATE DATABASE TV;
-
-
-
+/*use TV;*/
 /* Drops Table
 Drop table Reservation;
 Drop table Production;
@@ -9,6 +7,7 @@ Drop table PersonGenres;
 Drop table Genres;
 Drop table Person;
 Drop table Profile;
+Drop Database TV;
 */
 
 CREATE TABLE [dbo].[Profile] (
@@ -149,7 +148,7 @@ VALUES ('O vento te levou',1,Getdate(),Getdate())
 
 INSERT INTO 
     Production(Name,PersonId,Created,Updated)
-VALUES ('O Sono nos levou',2,Getdate(),Getdate())
+VALUES ('O Sono nos levou',7,Getdate(),Getdate())
 
 
 
@@ -180,31 +179,30 @@ VALUES (3,1,Getdate(),DateAdd(dd,2,GetDate()),DateAdd(dd,3,GetDate()))
 
 INSERT INTO 
     Reservation(PersonId,ProductionId,Created,InitialDate,FinalDate)
-VALUES (4,1,Getdate(),DateAdd(dd,2,GetDate()),DateAdd(dd,2,GetDate()))
+VALUES (4,3,Getdate(),DateAdd(dd,2,GetDate()),DateAdd(dd,2,GetDate()))
 
 INSERT INTO 
     Reservation(PersonId,ProductionId,Created,InitialDate,FinalDate)
-VALUES (5,1,Getdate(),DateAdd(dd,10,GetDate()),DateAdd(dd,12,GetDate()))
+VALUES (5,3,Getdate(),DateAdd(dd,10,GetDate()),DateAdd(dd,12,GetDate()))
 
 INSERT INTO 
     Reservation(PersonId,ProductionId,Created,InitialDate,FinalDate)
-VALUES (6,1,Getdate(),DateAdd(dd,1,GetDate()),DateAdd(dd,10,GetDate()))
+VALUES (6,3,Getdate(),DateAdd(dd,1,GetDate()),DateAdd(dd,10,GetDate()))
 
 INSERT INTO 
     Reservation(PersonId,ProductionId,Created,InitialDate,FinalDate)
-VALUES (6,1,Getdate(),DateAdd(dd,20,GetDate()),DateAdd(dd,40,GetDate()))
+VALUES (6,3,Getdate(),DateAdd(dd,20,GetDate()),DateAdd(dd,40,GetDate()))
 
 INSERT INTO 
     Reservation(PersonId,ProductionId,Created,InitialDate,FinalDate)
 VALUES (6,1,Getdate(),DateAdd(dd,15,GetDate()),DateAdd(dd,19,GetDate()))
 
+INSERT INTO 
+    Reservation(PersonId,ProductionId,Created,InitialDate,FinalDate)
+VALUES (6,1,Getdate(),DateAdd(dd,40,GetDate()),DateAdd(dd,41,GetDate()))
 
 
 /* Selects
-
-
-select *
-From Reservation
 
 Select *
 From Profile

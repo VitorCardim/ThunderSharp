@@ -21,7 +21,7 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = $@"SELECT *
                                         FROM Genres 
                                     WHERE Id={id}";

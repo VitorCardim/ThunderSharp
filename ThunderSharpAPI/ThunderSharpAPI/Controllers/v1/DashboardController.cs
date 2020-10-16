@@ -21,7 +21,7 @@ namespace ThunderSharpAPI.Controllers.v1
             _dashboardService = dashboardAppService;
         }
 
-        [Authorize(Roles = "Productor")]
+        //[Authorize(Roles = "Productor")]
         [HttpGet("dashboard/{id}")] //api/Dashboard
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]
@@ -34,8 +34,8 @@ namespace ThunderSharpAPI.Controllers.v1
                 .ConfigureAwait(false));
         }
 
-        [Authorize(Roles = "Productor")]
-        [HttpGet("dashboard/{id}/total")] //api/Dashboard
+        //[Authorize(Roles = "Productor")]
+        [HttpGet("dashboard/total")] //api/Dashboard
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
@@ -43,10 +43,24 @@ namespace ThunderSharpAPI.Controllers.v1
         {
             return OkOrNoContent( await _dashboardService.GetTotal());
         }
+
+
+        //[Authorize(Roles = "Productor")]
+        [HttpGet("dashboard/days")] //api/Dashboard
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetMostReservedDays()
         {
             return OkOrNoContent(await _dashboardService.GetMostReservedDays());
         }
+
+
+        //[Authorize(Roles = "Productor")]
+        [HttpGet("dashboard/reserved")] //api/Dashboard
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
         public async Task<IActionResult> GetMostReservedActors()
         {
             return OkOrNoContent(await _dashboardService.GetMostReservedActors());

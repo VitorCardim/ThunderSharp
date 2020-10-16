@@ -6,12 +6,8 @@ using Thunder.Domain.Entities;
 
 namespace Thunder.Domain.Interfaces.Repositories
 {
-    public interface IUserRepository
+    public interface IGenreRepository
     {
-        Task<User> GetUserLoginAsync(Login login);
-
-        Task<int> InsertUserAsync(User user);
-
-        Task<User> GetUserByIdAsync(int id);
+        Task<Profile> GetByIdAsync(int id);
     }
 }

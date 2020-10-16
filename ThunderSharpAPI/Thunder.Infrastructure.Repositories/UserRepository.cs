@@ -118,5 +118,49 @@ namespace Thunder.Infrastructure.Repositories
                 throw;
             }
         }
+        public async Task<User> GetUserByIdAsync(int id)
+        {
+            try
+            {
+                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                var sqlCmd = @$"    SELECT
+                                           Person.Id, 
+                                           Person.Email,
+                                           Person.Name,
+                                           Person.Age,
+                                           Person.Password,
+                                           Person.PhoneNumber,
+                                           Person.ProfileId,
+                                           Profile.Label 
+                                    FROM Person 
+                                    JOIN Profile ON Person.ProfileId = Profile.Id
+                                    WHERE Person.Id='{id}';
+";
+
+                using SqlCommand cmd = new SqlCommand(sqlCmd, con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+
+                var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false);
+
+                while (reader.Read())
+                {
+                    var user = new User(reader["CPF"].ToString(),
+                                        reader["Name"].ToString(),
+                                        reader["Email"].ToString(),
+                                        reader["Age"].ToString(),
+                                        reader["PhoneNumber"].ToString(),
+                                        reader["Password"].ToString(),
+                                        new Profile(int.Parse(reader["ProfileId"].ToString()), reader["Label"].ToString()));
+                    return user;
+                }
+
+                return default;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

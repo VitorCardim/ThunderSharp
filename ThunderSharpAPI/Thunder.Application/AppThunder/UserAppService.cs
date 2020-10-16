@@ -24,7 +24,7 @@ namespace Thunder.Application.AppThunder
             _notification = Notification;
             _profileRepository = ProfileRepository;
         }
-        public async Task<UserViewModel> InsertAsync(UserInput user)
+        public async Task<int> InsertAsync(UserInput user)
         {
             var profile = await _profileRepository.GetByIdAsync(user.ProfileId);
 
@@ -34,13 +34,14 @@ namespace Thunder.Application.AppThunder
                 return default;
             }
 
-            var usr = new User(user.CPF, user.Name, user.Email,user.Age,user.PhoneNumber,user.Password, profile);
+            var usr = new User(user.CPF, user.Name, user.Email,user.Age,user.PhoneNumber,user.Password, profile,user.Fee);
             if (usr.IsValid())
             {
-                return null;
+                return await _userRepository.InsertUserAsync(usr);
             }
-            return null;
-
+            return 0;
         }
+
+        
     }
 }

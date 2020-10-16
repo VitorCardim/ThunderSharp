@@ -21,14 +21,14 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = $@"SELECT *
                                         FROM PROFILE 
                                     WHERE Id={id}";
 
                 using SqlCommand cmd = new SqlCommand(sqlCmd, con);
                 cmd.CommandType = CommandType.Text;
-                con.Open();
+                await con.OpenAsync();
 
                 var reader = await cmd
                                     .ExecuteReaderAsync()
@@ -36,8 +36,8 @@ namespace Thunder.Infrastructure.Repositories
 
                 while (reader.Read())
                 {
-                    var profile = new Profile(int.Parse(reader["id"].ToString()),
-                                        reader["Description"].ToString());
+                    var profile = new Profile(int.Parse(reader["Id"].ToString()),
+                                        reader["Label"].ToString());
                     return profile;
                 }
                 return default;

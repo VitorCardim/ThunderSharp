@@ -40,8 +40,12 @@ namespace Thunder.Application.AppThunder
 
                 return new UserViewModel(user.Age, user.Name, user.Email, user.Age, user.PhoneNumber, user.Profile);
             }
-            return null;
-            
+            else
+            {
+                _notification.NewNotificationBadRequest("Campos Incorretos");
+                return default;
+            }
         }
+
     }
 }

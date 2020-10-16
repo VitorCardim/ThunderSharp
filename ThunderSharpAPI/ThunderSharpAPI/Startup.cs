@@ -37,7 +37,6 @@ namespace ThunderSharpAPI
             
             services.AddControllers();
             services.AddOptions();
-
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -48,7 +47,8 @@ namespace ThunderSharpAPI
             });
 
             services.AddControllers().AddNewtonsoftJson();
-            services.AddTransient<IValidator<Register>, RegisterValidation>();
+
+            services.AddTransient<IValidator<Login>, LoginValidator>();
 
             var signingConfigurations = new SigningConfigurations();
             services.AddSingleton(signingConfigurations);
@@ -69,7 +69,6 @@ namespace ThunderSharpAPI
                     ClockSkew = TimeSpan.Zero
                 };
             });
-
             services.AddAuthorization(auth =>
             {
                 auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
@@ -90,21 +89,17 @@ namespace ThunderSharpAPI
                     }
                 });
                 services.AddSmartNotification();
-                RegisterServices(services);
             });
 
+            RegisterServices(services);
 
             services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
-            
-
-            
 
             services.AddSmartNotification();
             RegisterServices(services);
-
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

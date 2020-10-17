@@ -32,9 +32,9 @@ namespace Thunder.Application.AppThunder
             return await _reservationRepository.GetReservationByUserIdAsync(id).ConfigureAwait(false);
 
         }
-        public async Task<int> InsertAsync(ReservationInput reservation)
+        public async Task<int> InsertAsync(int PersonId, int ProductionId, DateTime Created, DateTime InitialDate, DateTime FinalDate)
         {
-            var production = await _productionRepository.GetByID(reservation.ProductionId);
+            var production = await _productionRepository.GetByID(ProductionId);
 
             if(production == null)
             {
@@ -42,7 +42,7 @@ namespace Thunder.Application.AppThunder
                 return default;
             }
             
-            var user = await _userRepository.GetUserByIdAsync(reservation.UserId);
+            var user = await _userRepository.GetUserByIdAsync(PersonId);
 
             if (user == null)
             {
@@ -51,7 +51,7 @@ namespace Thunder.Application.AppThunder
             }
 
 
-            var reserv = new Reservation(user, production, reservation.Created, reservation.InitialDate, reservation.FinalDate);
+            var reserv = new Reservation(user, production, Created, InitialDate, FinalDate);
             if (reserv.IsValid())
             {
                 return await _reservationRepository.InsertReservationAsync(reserv);

@@ -5,6 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using Thunder.Application.AppThunder.Interfaces;
 using Marraia.Notifications.Models;
 using Marraia.Notifications.Base;
+using Thunder.Application.AppThunder.Input;
+using System;
+using Microsoft.Extensions.Configuration;
+using Marraia.Notifications.Handlers;
 
 namespace ThunderSharpAPI.Controllers.v1
 {
@@ -13,12 +17,17 @@ namespace ThunderSharpAPI.Controllers.v1
     public class ReservationController : BaseController
     {
         private readonly IReservationAppService _reservationService;
+        private readonly DomainNotificationHandler _notificationHandler;
+        private readonly IConfiguration _configuration;
 
         public ReservationController(INotificationHandler<DomainNotification> notification,
+            IConfiguration Configuration,
             IReservationAppService reservationAppService)
             : base(notification)
         {
             _reservationService = reservationAppService;
+            _configuration = Configuration;
+            _notificationHandler = (DomainNotificationHandler)notification;
         }
 
         //[Authorize(Roles = "Productor")]
@@ -32,6 +41,28 @@ namespace ThunderSharpAPI.Controllers.v1
             return OkOrNoContent(await _reservationService
                 .GetReservationByUserIdAsync(id)
                 .ConfigureAwait(false));
+        }
+
+        [HttpPost]
+        [ProducesResponseType(typeof(string), 201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> Reservation([FromBody] ReservationInput reservation)
+        {
+            try
+            {
+                var result = await _reservationService.InsertAsync(reservation.UserId, reservation.ProductionId, DateTime.Now , reservation.InitialDate, reservation.FinalDate);
+                if (result > 0)
+                {
+                    return Ok();
+                }
+                return OkOrNoContent(_notificationHandler.GetNotifications());
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(); ;
+            }
         }
     }
 }

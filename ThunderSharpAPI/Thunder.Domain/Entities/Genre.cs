@@ -11,8 +11,8 @@ namespace Thunder.Domain.Entities
                 Label = label;
                 Id = id;
             }
-            public int Id { get; set; }
-            public string Label { get; set; }
+            public int Id { get; private set; }
+            public string Label { get; private set; }
     }
 }
 

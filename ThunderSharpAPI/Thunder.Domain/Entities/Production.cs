@@ -28,7 +28,7 @@ namespace Thunder.Domain.Entities
         public Production(string name, int personId, DateTime created, DateTime updated)
         {
             Name = name;
-            PersonId = PersonId;
+            PersonId = personId;
             Created = created;
             Updated = updated;
         }

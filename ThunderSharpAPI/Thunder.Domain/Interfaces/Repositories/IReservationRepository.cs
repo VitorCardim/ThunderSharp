@@ -8,7 +8,7 @@ namespace Thunder.Domain.Interfaces.Repositories
 {
     public interface IReservationRepository
     {
-        Task<Reservation> GetReservationByUserIdAsync(int id);
+        Task<IEnumerable<Reservation>> GetReservationByUserIdAsync(int id);
 
         Task<int> InsertReservationAsync(Reservation reservation);
 

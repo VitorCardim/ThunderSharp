@@ -19,7 +19,7 @@ namespace Thunder.Infrastructure.Repositories
             _configuration = Configuration;
         }
 
-        public async Task<Reservation> GetReservationByUserIdAsync(User user)
+        public async Task<Reservation> GetReservationByUserIdAsync(int id)
         {
             try
             {
@@ -44,19 +44,19 @@ namespace Thunder.Infrastructure.Repositories
                                 JOIN Person P ON R.PersonId = P.Id
                                 JOIN Production PROD ON R.ProductionId = PROD.Id
                                 JOIN Profile PF ON P.ProfileId = PF.Id
-                                WHERE P.Id='{user.Id}';"
+                                WHERE P.Id='{id}';"
                                 ;
 
                 using SqlCommand cmd = new SqlCommand(sqlCmd, con);
                 cmd.CommandType = CommandType.Text;
-                con.Open();
+                await con.OpenAsync();
 
-                var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false);
+                var reader = await cmd.ExecuteReaderAsync()
+                                        .ConfigureAwait(false);
 
                 while (reader.Read())
                 {
                     var reservation = new Reservation(
-                                        int.Parse(reader["Id"].ToString()),
                                         new User(reader["Name"].ToString(),
                                                  reader["Email"].ToString(),
                                                  reader["Age"].ToString(),
@@ -71,8 +71,8 @@ namespace Thunder.Infrastructure.Repositories
                                                                           new User(int.Parse(reader["PersonId"].ToString())),
                                                                           DateTime.Parse(reader["ProductionCreated"].ToString()),
                                                                           DateTime.Parse(reader["ProductionUpdated"].ToString())),
-                                        DateTime.Parse(reader["Created"].ToString()),
-                                        DateTime.Parse(reader["InicialDate"].ToString()),
+                                        DateTime.Parse(reader["ProductionCreated"].ToString()),
+                                        DateTime.Parse(reader["InitialDate"].ToString()),
                                         DateTime.Parse(reader["FinalDate"].ToString()));
                     return reservation;
                 }

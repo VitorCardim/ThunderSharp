@@ -38,7 +38,7 @@ namespace Thunder.Application.AppThunder
                     return default;
                 }
 
-                return new UserViewModel(user.Age, user.Name, user.Email, user.Age, user.PhoneNumber, user.Profile,user.Fee);
+                return new UserViewModel(user.Name, user.Email, user.Age, user.PhoneNumber, user.Profile,user.Fee);
             }
             else
             {

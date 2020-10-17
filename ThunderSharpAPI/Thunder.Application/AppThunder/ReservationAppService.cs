@@ -18,7 +18,6 @@ namespace Thunder.Application.AppThunder
         private readonly IUserRepository _userRepository;
         private readonly IProductionRepository _productionRepository;
 
-
         public ReservationAppService(IReservationRepository ReservationRepository, ISmartNotification Notification, IUserRepository UserRepository, IProductionRepository ProductionRepository)
         {
             _reservationRepository = ReservationRepository;
@@ -26,6 +25,12 @@ namespace Thunder.Application.AppThunder
             _userRepository = UserRepository;
             _notification = Notification;
             
+        }
+
+        public async Task<Reservation> GetReservationByUserIdAsync(int id)
+        {
+            return await _reservationRepository.GetReservationByUserIdAsync(id).ConfigureAwait(false);
+
         }
         public async Task<int> InsertAsync(ReservationInput reservation)
         {
@@ -46,7 +51,7 @@ namespace Thunder.Application.AppThunder
             }
 
 
-            var reserv = new Reservation(reservation.Id, user, production, reservation.Created, reservation.InitialDate, reservation.FinalDate);
+            var reserv = new Reservation(user, production, reservation.Created, reservation.InitialDate, reservation.FinalDate);
             if (reserv.IsValid())
             {
                 return await _reservationRepository.InsertReservationAsync(reserv);

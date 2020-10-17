@@ -4,9 +4,9 @@ namespace Thunder.Domain.Entities
     {
         public class DashboardMostReservedActors
     {
-            public string ActorName { get; set; }
+            public string ActorName { get; private set; }
 
-            public string Quantity { get; set; }
+            public string Quantity { get; private set; }
 
         public DashboardMostReservedActors(string actorName, string quantity)
         {

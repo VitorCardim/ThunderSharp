@@ -78,7 +78,7 @@ namespace Thunder.Infrastructure.Repositories
 
                 cmd.Parameters.AddWithValue("Name", production.Name);
                 cmd.Parameters.AddWithValue("PersonId", production.PersonId);
-                cmd.Parameters.AddWithValue("Create", DateTime.Now);
+                cmd.Parameters.AddWithValue("Created", DateTime.Now);
                 cmd.Parameters.AddWithValue("Updated", DateTime.Now);
 
                 await con.OpenAsync();

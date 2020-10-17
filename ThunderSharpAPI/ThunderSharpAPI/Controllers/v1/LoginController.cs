@@ -51,7 +51,7 @@ namespace ThunderSharpAPI.Controllers.v1
                 if (user != default)
                 {
                     var identity = new ClaimsIdentity(
-                        new GenericIdentity(user.CPF, "CPF"),
+                        new GenericIdentity(user.Email, "Email"),
                         new[] {
                         //new Claim(JwtRegisteredClaimNames.Jti, user.Id.ToString()),
                         new Claim(ClaimTypes.Role, user.Profile.Label),
@@ -75,14 +75,15 @@ namespace ThunderSharpAPI.Controllers.v1
                     });
                     var token = handler.WriteToken(securityToken);
 
-                    return new
+                    return Ok(new
                     {
                         authenticated = true,
                         created = dateCreated.ToString("yyyy-MM-dd HH:mm:ss"),
                         expiration = dateExpiration.ToString("yyyy-MM-dd HH:mm:ss"),
                         accessToken = token,
                         message = "OK"
-                    };
+                    });
+                    
                 }
                 return Unauthorized(_smartNotification.GetNotifications());
             }

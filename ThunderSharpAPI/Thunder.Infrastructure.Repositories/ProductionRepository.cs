@@ -13,9 +13,11 @@ namespace Thunder.Infrastructure.Repositories
     public class ProductionRepository : IProductionRepository
     {
         private readonly IConfiguration _configuration;
+
         public ProductionRepository(IConfiguration configuration)
         {
             _configuration = configuration;
+
         }
 
         public async Task<Production> GetByID(int id)
@@ -32,7 +34,7 @@ namespace Thunder.Infrastructure.Repositories
                     using (SqlCommand cmd = new SqlCommand(sqlCmd, con))
                     {
                         cmd.CommandType = CommandType.Text;
-                        con.Open();
+                        await con.OpenAsync();
 
                         var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false);
 
@@ -40,7 +42,7 @@ namespace Thunder.Infrastructure.Repositories
                         {
                             var production = new Production(int.Parse(reader["id"].ToString()),
                                                             reader["name"].ToString(),
-                                                            new User(int.Parse(reader["PersonId"].ToString())),
+                                                            int.Parse(reader["PersonId"].ToString()),
                                                             DateTime.Parse(reader["created"].ToString()),
                                                             DateTime.Parse(reader["updated"].ToString()));
                                 
@@ -76,8 +78,8 @@ namespace Thunder.Infrastructure.Repositories
 
                 cmd.Parameters.AddWithValue("Name", production.Name);
                 cmd.Parameters.AddWithValue("PersonId", production.PersonId);
-                cmd.Parameters.AddWithValue("Create", production.Created);
-                cmd.Parameters.AddWithValue("Updated", production.Updated);
+                cmd.Parameters.AddWithValue("Create", DateTime.Now);
+                cmd.Parameters.AddWithValue("Updated", DateTime.Now);
 
                 await con.OpenAsync();
                 var id = await cmd.ExecuteScalarAsync().ConfigureAwait(false);
@@ -92,7 +94,7 @@ namespace Thunder.Infrastructure.Repositories
         }
 
 
-        async Task<IEnumerable<Production>> IProductionRepository.Get()
+        public async Task<IEnumerable<Production>> Get()
         {
             try
             {
@@ -104,14 +106,14 @@ namespace Thunder.Infrastructure.Repositories
                     using (SqlCommand cmd = new SqlCommand(sqlCmd, con))
                     {
                         cmd.CommandType = CommandType.Text;
-                        con.Open();
+                        await con.OpenAsync();
                         var reader = cmd.ExecuteReader();
 
                         while (reader.Read())
                         {
                             var production = new Production(int.Parse(reader["id"].ToString()),
                                                             reader["name"].ToString(),
-                                                            new User(int.Parse(reader["PersonId"].ToString())),
+                                                            int.Parse(reader["PersonId"].ToString()),
                                                             DateTime.Parse(reader["created"].ToString()),
                                                             DateTime.Parse(reader["updated"].ToString()));
 

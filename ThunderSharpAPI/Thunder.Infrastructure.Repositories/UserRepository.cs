@@ -123,7 +123,7 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = @$"    SELECT
                                            Person.Id, 
                                            Person.Email,
@@ -131,29 +131,20 @@ namespace Thunder.Infrastructure.Repositories
                                            Person.Age,
                                            Person.Password,
                                            Person.PhoneNumber,
-                                           Person.ProfileId,
-                                           Profile.Label 
+                                           Person.ProfileId
                                     FROM Person 
-                                    JOIN Profile ON Person.ProfileId = Profile.Id
                                     WHERE Person.Id='{id}';
 ";
 
                 using SqlCommand cmd = new SqlCommand(sqlCmd, con);
                 cmd.CommandType = CommandType.Text;
-                con.Open();
+                await con.OpenAsync();
 
                 var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false);
 
                 while (reader.Read())
-                {
-                    var user = new User(reader["Name"].ToString(),
-                                        reader["Email"].ToString(),
-                                        reader["Age"].ToString(),
-                                        reader["PhoneNumber"].ToString(),
-                                        reader["Password"].ToString(),
-                                        new Profile(int.Parse(reader["ProfileId"].ToString()),
-                                        reader["Label"].ToString()),decimal.Parse(reader["Fee"].ToString()));
-                    return user;
+                { 
+                    return new User(int.Parse(reader["Id"].ToString()));
                 }
 
                 return default;

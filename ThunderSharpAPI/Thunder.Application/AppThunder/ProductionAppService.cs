@@ -15,11 +15,13 @@ namespace Thunder.Application.AppThunder
     {
         private readonly IProductionRepository _productionRepository;
         private readonly ISmartNotification _notification;
+        private readonly IUserRepository _userRepository;
 
-        public ProductionAppService(IProductionRepository productionRepository, ISmartNotification Notification)
+        public ProductionAppService(IProductionRepository productionRepository, ISmartNotification Notification, IUserRepository userRepository)
         {
             _productionRepository = productionRepository;
             _notification = Notification;
+            _userRepository = userRepository;
         }
         public async Task<IEnumerable<Production>> Get()
         {
@@ -33,7 +35,7 @@ namespace Thunder.Application.AppThunder
 
         public async Task<int> InsertAsync(string Name, int PersonId, DateTime Created, DateTime Updated)
         {
-            var person = await _productionRepository.GetByID(PersonId);
+            var person = await _userRepository.GetUserByIdAsync(PersonId);
 
             if (person != null)
             {

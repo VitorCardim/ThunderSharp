@@ -231,7 +231,8 @@ Join Reservation On Reservation.PersonId = Person.Id
 Join Production On Production.Id = Reservation.ProductionId
 Where Production.Id = 1    /*Input Production Id */
 AND   Production.PersonId = 1 /*Input Production Producer Id*/
-Group by Person.Name,
+Group by 
+Person.Name,
 Reservation.InitialDate, 
 Reservation.FinalDate
 Order by Person.Name */
@@ -245,8 +246,12 @@ Join PersonGenres On PersonGenres.PersonId = Person.Id
 Where PersonGenres.GenreId = 3 --Input Genres
 AND   (Cast('2020-10-27' as Date) < Reservation.InitialDate  OR Reservation.FinalDate < Cast('2020-10-27' as Date)) -- Input InitialDate
 AND   (Cast('2020-10-30' as Date) < Reservation.InitialDate  OR Reservation.FinalDate < Cast('2020-10-30' as Date))  --Input LastDate          
-Group By Person.Name, 
+Group By 
+Person.Name, 
 Person.Fee, 
 Person.PhoneNumber, 
 Person.Email
+*/
+
+
 

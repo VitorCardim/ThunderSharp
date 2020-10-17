@@ -9,9 +9,8 @@ namespace Thunder.Domain.Entities
     public class Reservation
     {
 
-        public Reservation(int id, User user, Production production, DateTime created, DateTime initialdate, DateTime finaldate)
+        public Reservation(User user, Production production, DateTime created, DateTime initialdate, DateTime finaldate)
         {
-            Id = id;
             User = user;
             Production = production;
             Created = DateTime.Now;
@@ -19,12 +18,12 @@ namespace Thunder.Domain.Entities
             FinalDate = finaldate;
         }
 
-        public int Id { get; set; }
-        public User User { get; set; }
-        public Production Production { get; set; }
-        public DateTime Created { get; set; }
-        public DateTime InitialDate { get; set; }
-        public DateTime FinalDate { get; set; }
+        public int Id { get; set;  }
+        public User User { get; private set; }
+        public Production Production { get; private set; }
+        public DateTime Created { get; private set; }
+        public DateTime InitialDate { get; private set; }
+        public DateTime FinalDate { get; private set; }
         
         public bool IsValid()
         {

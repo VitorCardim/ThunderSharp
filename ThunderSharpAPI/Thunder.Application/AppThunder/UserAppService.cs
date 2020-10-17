@@ -34,7 +34,7 @@ namespace Thunder.Application.AppThunder
                 return default;
             }
 
-            var usr = new User(user.Name, user.Email,user.Age,user.PhoneNumber,user.Password, profile,user.Fee);
+            var usr = new User(user.Name, user.Email,user.Age,user.PhoneNumber,user.Password, user.Fee, profile);
             if (usr.IsValid())
             {
                 return await _userRepository.InsertUserAsync(usr);

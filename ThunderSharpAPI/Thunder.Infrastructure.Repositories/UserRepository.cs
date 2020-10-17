@@ -24,14 +24,16 @@ namespace Thunder.Infrastructure.Repositories
             try
             {
                 using var con = new SqlConnection(_configuration["DefaultConnection"]);
-                var sqlCmd = @$"SELECT Person.CPF, 
+                var sqlCmd =            @$"SELECT  
                                            Person.Email,
                                            Person.Name,
                                            Person.Age,
                                            Person.Password,
                                            Person.PhoneNumber,
                                            Person.ProfileId,
-                                           Profile.Label 
+                                           Person.Fee,
+                                           Profile.Label
+                                           
                                         FROM Person 
                                     JOIN Profile ON Person.ProfileId = Profile.Id
                                     WHERE Person.Email='{login.Email}';
@@ -50,8 +52,8 @@ namespace Thunder.Infrastructure.Repositories
                                         reader["Age"].ToString(),
                                         reader["PhoneNumber"].ToString(),
                                         reader["Password"].ToString(),
-                                        new Profile(int.Parse(reader["ProfileId"].ToString()), reader["Label"].ToString()),
-                                        decimal.Parse(reader["Fee"].ToString()));
+                                        decimal.Parse(reader["Fee"].ToString()),
+                                        new Profile(int.Parse(reader["ProfileId"].ToString()), reader["Label"].ToString()));
                     return user;
                 }
 

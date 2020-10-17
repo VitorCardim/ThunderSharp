@@ -57,7 +57,8 @@ namespace Thunder.Application.AppThunder
                 return await _reservationRepository.InsertReservationAsync(reserv);
             }
 
-            return 0;
+            _notification.NewNotificationBadRequest("Campos Incorretos");
+            return default;
   
 
         }

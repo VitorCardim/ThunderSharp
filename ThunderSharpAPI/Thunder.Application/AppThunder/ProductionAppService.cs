@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Marraia.Notifications.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,17 +11,21 @@ using Thunder.Domain.Interfaces.Repositories;
 namespace Thunder.Application.AppThunder
 {
     public class ProductionAppService : IProductionAppService
+
     {
         private readonly IProductionRepository _productionRepository;
+        private readonly ISmartNotification _notification;
+        private readonly IUserRepository _userRepository;
 
-        public ProductionAppService(IProductionRepository productionRepository)
+        public ProductionAppService(IProductionRepository productionRepository, ISmartNotification Notification, IUserRepository userRepository)
         {
             _productionRepository = productionRepository;
+            _notification = Notification;
+            _userRepository = userRepository;
         }
-
-        public IEnumerable<Production> Get()
+        public async Task<IEnumerable<Production>> Get()
         {
-            return _productionRepository.Get();
+            return await _productionRepository.Get();
         }
 
         public async Task<Production> GetById(int id)
@@ -30,11 +35,10 @@ namespace Thunder.Application.AppThunder
 
         public async Task<int> InsertAsync(string Name, int PersonId, DateTime Created, DateTime Updated)
         {
-            var person = await _productionRepository.GetByID(PersonId);
+            var person = await _userRepository.GetUserByIdAsync(PersonId);
 
             if (person != null)
             {
-
                 var Production = new Production(Name, PersonId, Created, Updated);
 
                 if (Production.isValid())
@@ -49,7 +53,8 @@ namespace Thunder.Application.AppThunder
                 }
 
             }
-            return 0;
+            _notification.NewNotificationBadRequest("Campos Incorretos");
+            return default;        
         }
     }
 }

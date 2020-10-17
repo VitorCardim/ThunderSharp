@@ -35,8 +35,9 @@ namespace Thunder.Domain.Entities
             Updated = DateTime.Now;
         }
 
-        public User(int v)
+        public User(int Id)
         {
+            this.Id = Id;
         }
 
         public int Id { get; private set; }

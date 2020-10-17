@@ -27,7 +27,7 @@ namespace Thunder.Application.AppThunder
             
         }
 
-        public async Task<Reservation> GetReservationByUserIdAsync(int id)
+        public async Task<IEnumerable<Reservation>> GetReservationByUserIdAsync(int id)
         {
             return await _reservationRepository.GetReservationByUserIdAsync(id).ConfigureAwait(false);
 

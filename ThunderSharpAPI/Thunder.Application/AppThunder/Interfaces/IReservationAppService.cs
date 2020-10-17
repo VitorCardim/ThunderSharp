@@ -11,7 +11,7 @@ namespace Thunder.Application.AppThunder.Interfaces
     public interface IReservationAppService
     {
         Task<int> InsertAsync(ReservationInput reservation);
-        Task<Reservation> GetReservationByUserIdAsync(int id);
+        Task<IEnumerable<Reservation>> GetReservationByUserIdAsync(int id);
     }
 
     

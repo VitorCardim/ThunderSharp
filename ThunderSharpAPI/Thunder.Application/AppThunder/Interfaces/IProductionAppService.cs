@@ -13,5 +13,6 @@ namespace Thunder.Application.AppThunder.Interfaces
         Task<Production> GetById(int id);
         Task<IEnumerable<Production>> Get();
         Task<int> InsertAsync(string Name, int PersonId, DateTime Created, DateTime Updated);
+        Task<IEnumerable<Production>> SearchProductionDetail(int id, int personid);
     }
 }

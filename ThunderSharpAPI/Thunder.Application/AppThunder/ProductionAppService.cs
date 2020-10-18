@@ -56,6 +56,12 @@ namespace Thunder.Application.AppThunder
             _notification.NewNotificationBadRequest("Campos Incorretos");
             return default;        
         }
+
+
+        public async Task<IEnumerable<Production>> SearchProductionDetail(int id, int personid)
+        {
+            return await _productionRepository.SearchProductionDetail(id, personid);
+        }
     }
 }
 

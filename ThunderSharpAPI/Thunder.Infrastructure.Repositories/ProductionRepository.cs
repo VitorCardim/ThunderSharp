@@ -129,7 +129,56 @@ namespace Thunder.Infrastructure.Repositories
                 throw new Exception(ex.Message);
             }
         }
-    }
 
+        public async Task<IEnumerable<Production>> SearchProductionDetail(int id, int personid)
+        {
+            try
+            {
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
+                {
+                    var ProductionList = new List<Production>();
+
+
+                    string sqlCmd = @$" Select p.Id Id, p.Name Name, res.InitialDate InitialDate , res.FinalDate FinalDate
+                                        From Person p, Reservation res, Production prd
+                                        where res.PersonId = p.Id
+                                        and prd.Id = res.ProductionId
+                                        and prd.Id = '{id}'    
+                                        AND prd.PersonId = '{personid}' 
+                                        Group by
+                                        p.Id,
+                                        p.Name,
+                                        res.InitialDate, 
+                                        res.FinalDate
+                                        Order by res.InitialDate;";
+
+                    using SqlCommand cmd = new SqlCommand(sqlCmd, con);
+                    cmd.CommandType = CommandType.Text;
+                    await con.OpenAsync();
+
+                    var reader = await cmd.ExecuteReaderAsync()
+                                            .ConfigureAwait(false);
+
+                    while (reader.Read())
+                    {
+                        var search = new Production(
+                                     new User(int.Parse(reader["Id"].ToString()), reader["Name"].ToString()),
+                                     new Reservation(DateTime.Parse(reader["InitialDate"].ToString()), DateTime.Parse(reader["FinalDate"].ToString()))
+                                     );
+                            
+
+
+                        ProductionList.Add(search);
+                    }
+
+                    return ProductionList;
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+    }
 }
 

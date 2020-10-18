@@ -8,6 +8,7 @@ namespace Thunder.Domain.Entities
 {
     public class Reservation
     {
+        private DateTime dateTime;
 
         public Reservation(User user, Production production, DateTime created, DateTime initialdate, DateTime finaldate)
         {
@@ -16,6 +17,12 @@ namespace Thunder.Domain.Entities
             Created = DateTime.Now;
             InitialDate = initialdate;
             FinalDate = finaldate;
+        }
+
+        public Reservation(DateTime initialdate, DateTime finaldate)
+        {
+            this.InitialDate = initialdate;
+            this.FinalDate = finaldate;
         }
 
         public int Id { get; set;  }

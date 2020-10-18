@@ -40,6 +40,7 @@ Vitor is acting like a Scrum Master.
 * A good friendship with the team.
 * Good colaboration.
 * New Skills.
+* In some stages of development we use pair-programming for code analysis and knowledge sharing.
 
 ## Project Infrastructure
 * We used Solid and DDD as pattern.

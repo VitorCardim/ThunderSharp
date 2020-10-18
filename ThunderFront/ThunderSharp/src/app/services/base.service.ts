@@ -17,9 +17,9 @@ export class BaseService {
   httpOptions = {
     headers: new HttpHeaders({'Content-type': 'application/json'}) };
 
-    SignUp(signUp: SignUp): any{
+    // tslint:disable-next-line:typedef
+    SignUp(signUp: SignUp){
       return this.httpClient.post(this.url + '/Register', JSON.stringify(signUp), this.httpOptions).pipe(
-        retry(2),
         catchError(this.handleError)
       );
     }

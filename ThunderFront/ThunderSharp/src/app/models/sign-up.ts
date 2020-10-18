@@ -1,6 +1,9 @@
 export interface SignUp {
-    FullName: string;
+    Name: string;
     Email: string;
-    PhoneNumber: string;
+    Age: string;
     Password: string;
+    PhoneNumber: string;
+    Fee: number;
+    IdProfile: string;
 }

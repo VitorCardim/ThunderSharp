@@ -35,6 +35,15 @@ namespace Thunder.Domain.Entities
             Updated = DateTime.Now;
         }
 
+        public User(int id, string name, string age, decimal fee, string email, string phoneNumber)
+        {
+            Id = id;
+            Name = name;
+            Age = age;         
+            Fee = fee;
+            Email = email;
+            PhoneNumber = phoneNumber;
+        }
         public User(int Id)
         {
             this.Id = Id;

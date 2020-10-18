@@ -18,6 +18,7 @@ namespace Thunder.Infrastructure.Ioc.Application
             services.AddScoped<IRegisterAppService, RegisterAppService>();
             services.AddScoped<IReservationAppService, ReservationAppService>();
             services.AddScoped<IProductionAppService, ProductionAppService>();
+            services.AddScoped<IUserAppService, UserAppService>();
         }
     }
 }

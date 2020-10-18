@@ -13,5 +13,7 @@ namespace Thunder.Domain.Interfaces.Repositories
         Task<int> InsertUserAsync(User user);
 
         Task<User> GetUserByIdAsync(int id);
+
+        Task<IEnumerable<User>> SearchUserByFeeGenresReservationDates(int genreId, decimal fee, DateTime initialReservation, DateTime finalReservation);
     }
 }

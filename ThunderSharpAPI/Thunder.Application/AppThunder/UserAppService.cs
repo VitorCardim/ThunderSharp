@@ -42,6 +42,9 @@ namespace Thunder.Application.AppThunder
             return 0;
         }
 
-        
+        public async Task<IEnumerable<User>> SearchUserByFeeGenresReservationDates(int genreId, decimal fee, DateTime initialReservation, DateTime finalReservation)
+        {
+            return await _userRepository.SearchUserByFeeGenresReservationDates(genreId, fee, initialReservation, finalReservation).ConfigureAwait(false); 
+        }
     }
 }

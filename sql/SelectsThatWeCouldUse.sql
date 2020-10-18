@@ -22,6 +22,7 @@ From Person
 Join Reservation On Reservation.PersonId = Person.Id
 Join PersonGenres On PersonGenres.PersonId = Person.Id
 Where PersonGenres.GenreId = 3 --Input Genres
+AND Person.Fee <= Cast('1000' as Decimal) -- Input Bucket
 AND   (Cast('2020-10-27' as Date) < Reservation.InitialDate  OR Reservation.FinalDate < Cast('2020-10-27' as Date)) -- Input InitialDate
 AND   (Cast('2020-10-30' as Date) < Reservation.InitialDate  OR Reservation.FinalDate < Cast('2020-10-30' as Date))  --Input LastDate          
 Group By 

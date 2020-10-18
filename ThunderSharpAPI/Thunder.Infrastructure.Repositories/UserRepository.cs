@@ -154,5 +154,58 @@ namespace Thunder.Infrastructure.Repositories
                 throw new Exception(ex.Message);
             }
         }
+        public async Task<IEnumerable<User>> SearchUserByFeeGenresReservationDates(int genreId, decimal fee, DateTime initialReservation, DateTime finalReservation)
+        {
+            try
+            {
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
+                {
+                    var searchList = new List<User>();
+
+
+                    string sqlCmd = @$" SELECT Person.Id, Person.Name, Person.Age, Person.Fee, Person.Email, Person.PhoneNumber 
+                                        FROM Person
+                                        JOIN Reservation On Reservation.PersonId = Person.Id
+                                        JOIN PersonGenres On PersonGenres.PersonId = Person.Id
+                                        WHERE PersonGenres.GenreId = '{genreId}'
+                                        AND Person.Fee <= '{fee}'
+                                        AND   ('{initialReservation}' < Reservation.InitialDate  OR Reservation.FinalDate < '{initialReservation}')
+                                        AND   ('{finalReservation}' < Reservation.InitialDate  OR Reservation.FinalDate < '{finalReservation}')          
+                                        Group By
+                                        Person.Id,
+                                        Person.Name,
+                                        Person.Age,
+                                        Person.Fee, 
+                                        Person.PhoneNumber, 
+                                        Person.Email;"
+                                    ;
+
+                    using SqlCommand cmd = new SqlCommand(sqlCmd, con);
+                    cmd.CommandType = CommandType.Text;
+                    await con.OpenAsync();
+
+                    var reader = await cmd.ExecuteReaderAsync()
+                                            .ConfigureAwait(false);
+
+                    while (reader.Read())
+                    {
+                        var search = new User(int.Parse(reader["Id"].ToString()),
+                                              reader["Name"].ToString(),
+                                              reader["Age"].ToString(),
+                                              decimal.Parse(reader["Fee"].ToString()),
+                                              reader["Email"].ToString(),
+                                              reader["PhoneNumber"].ToString());
+                        searchList.Add(search);
+                    }
+
+                    return searchList;
+                }
+            }
+
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

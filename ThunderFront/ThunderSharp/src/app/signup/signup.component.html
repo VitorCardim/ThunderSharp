@@ -29,13 +29,19 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><img src="/assets/person-outline.svg" height="20" alt="image"></span>
                                     </div>
-                                    <input type="text" placeholder="Nome Completo" formControlName = "FullName" class="form-control">
+                                    <input type="text" placeholder="Nome Completo" formControlName = "Name" class="form-control">
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><img src="/assets/phone-portrait-outline.svg" height="20" alt="image"></span>
                                     </div>
                                     <input type="text" placeholder="Telefone" formControlName = "PhoneNumber" class="form-control">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><img src="/assets/phone-portrait-outline.svg" height="20" alt="image"></span>
+                                    </div>
+                                    <input type="text" placeholder="Idade" formControlName = "Age" class="form-control">
                                 </div>
                                 <div class="input-group mb-3">
                                     <label>Você é Produtor ou Ator/Atriz ?</label>
@@ -47,6 +53,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" [disabled]= "!signUpForm.valid" style="background-color: #23ABFE;color: white" class="btn w-100">Cadastrar</button>
+                                <label class="input-group-text" *ngIf="idUser > 0">Cadastro efetuado com Sucesso</label>
                                 <div class="input-group-prepend">
                                 </div>                                
                             </div>

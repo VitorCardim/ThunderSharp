@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
 
   public checkItems: Items[] = [{id: 0, name: 'Produtor'}, {id: 0, name: 'Ator/Atriz'}];
 
-  constructor(private fb: FormBuilder) { this.createForm(); }
+  constructor(private fb: FormBuilder ) { this.createForm(); }
 
   createForm(): any{
     this.signUpForm = this.fb.group({

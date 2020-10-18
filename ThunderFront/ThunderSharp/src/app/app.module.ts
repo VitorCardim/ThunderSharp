@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavComponent } from './nav/nav.component';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { ActorHomeComponent } from './actor-home/actor-home.component';
 
 
 
@@ -19,8 +20,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     LoginComponent,
     SignupComponent,
     DashboardComponent,
-    NavComponent
-  ],
+    NavComponent,
+    ActorHomeComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

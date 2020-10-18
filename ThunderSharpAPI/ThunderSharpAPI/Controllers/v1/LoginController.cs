@@ -56,7 +56,8 @@ namespace ThunderSharpAPI.Controllers.v1
                         //new Claim(JwtRegisteredClaimNames.Jti, user.Id.ToString()),
                         new Claim(ClaimTypes.Role, user.Profile.Label),
                         new Claim("IdProfile", user.Profile.Id.ToString()),
-                        new Claim("NameUser", user.Name)
+                        new Claim("NameUser", user.Name),
+                        new Claim("IdUser", user.Id.ToString())
                         }
                     );
 

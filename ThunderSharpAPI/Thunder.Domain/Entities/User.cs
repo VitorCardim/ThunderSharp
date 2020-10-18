@@ -22,33 +22,43 @@ namespace Thunder.Domain.Entities
         }
 
 
-        public User(int id, string name, string email, string age, string phoneNumber, string password, Profile profile)
+        public User(string name, string email, string age, string phoneNumber, string password, decimal fee, Profile profile)
         {
-            Id = id;
             Name = name;
             Email = email;
             Age = age;
             PhoneNumber = phoneNumber;
-            Encrypt(password);
+            Password = password;
             Profile = profile;
+            Fee = fee;
             Created = DateTime.Now;
             Updated = DateTime.Now;
         }
 
-        public User(int v)
+        public User(int id, string name, string age, decimal fee, string email, string phoneNumber)
         {
+            Id = id;
+            Name = name;
+            Age = age;         
+            Fee = fee;
+            Email = email;
+            PhoneNumber = phoneNumber;
+        }
+        public User(int Id)
+        {
+            this.Id = Id;
         }
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Age { get; set; }
-        public string PhoneNumber { get; set; }
-        public decimal Fee { get; set; }
-        public DateTime Created { get; set; }
-        public DateTime Updated { get; set; }
-        public string Password { get; set; }
-        public Profile Profile { get; set; }
+        public int Id { get; private set; }
+        public string Name { get; private set; }
+        public string Email { get; private set; }
+        public string Age { get; private set; }
+        public string PhoneNumber { get; private set; }
+        public decimal Fee { get; private set; }
+        public DateTime Created { get; private set; }
+        public DateTime Updated { get; private set; }
+        public string Password { get; private set; }
+        public Profile Profile { get; private set; }
 
         public bool IsValid()
         {

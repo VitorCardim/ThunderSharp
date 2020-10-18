@@ -12,10 +12,10 @@ namespace Thunder.Domain.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public User PersonId { get; set; }
+        public int PersonId { get; set; }
         public DateTime Created { get; set; }
         public DateTime Updated { get; set; }
-        public Production(int id, string name, User personId, DateTime created, DateTime updated)
+        public Production(int id, string name, int personId, DateTime created, DateTime updated)
         {
             this.Id = id;
             this.Name = name;
@@ -28,7 +28,7 @@ namespace Thunder.Domain.Entities
         public Production(string name, int personId, DateTime created, DateTime updated)
         {
             Name = name;
-            PersonId = PersonId;
+            PersonId = personId;
             Created = created;
             Updated = updated;
         }

@@ -19,66 +19,72 @@ namespace Thunder.Infrastructure.Repositories
             _configuration = Configuration;
         }
 
-        public async Task<Reservation> GetReservationByUserIdAsync(User user)
+        public async Task<IEnumerable<Reservation>> GetReservationByUserIdAsync(int id)
         {
             try
             {
                 using var con = new SqlConnection(_configuration["DefaultConnection"]);
-                var sqlCmd = @$"SELECT     R.Id, 
-                                           R.PersonId,
-                                           R.ProductionId,
-                                           R.InitialDate,
-                                           R.FinalDate,
-                                           P.Name,
-                                           P.Email,
-                                           P.Age,
-                                           P.PhoneNumber,
-                                           P.Password,
-                                           P.ProfileId,
-                                           P.Fee,
-                                           PF.Label,
-                                           PROD.Name as ProductionName,
-                                           PROD.Created as ProductionCreated,
-                                           PROD.Updated as ProductionUpdated                                            
-                                FROM Reservation R 
-                                JOIN Person P ON R.PersonId = P.Id
-                                JOIN Production PROD ON R.ProductionId = PROD.Id
-                                JOIN Profile PF ON P.ProfileId = PF.Id
-                                WHERE P.Id='{user.Id}';"
-                                ;
-
-                using SqlCommand cmd = new SqlCommand(sqlCmd, con);
-                cmd.CommandType = CommandType.Text;
-                con.Open();
-
-                var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false);
-
-                while (reader.Read())
                 {
-                    var reservation = new Reservation(
-                                        int.Parse(reader["Id"].ToString()),
-                                        new User(reader["Name"].ToString(),
-                                                 reader["Email"].ToString(),
-                                                 reader["Age"].ToString(),
-                                                 reader["PhoneNumber"].ToString(),
-                                                 reader["Password"].ToString(),
-                                                 new Profile(
-                                                            int.Parse(reader["ProfileId"].ToString()), 
-                                                            reader["Label"].ToString()),
-                                                 decimal.Parse(reader["Fee"].ToString())),
-                                                 new Production(int.Parse(reader["ProductionId"].ToString()),
-                                                                          reader["ProductionName"].ToString(),
-                                                                          new User(int.Parse(reader["PersonId"].ToString())),
-                                                                          DateTime.Parse(reader["ProductionCreated"].ToString()),
-                                                                          DateTime.Parse(reader["ProductionUpdated"].ToString())),
-                                        DateTime.Parse(reader["Created"].ToString()),
-                                        DateTime.Parse(reader["InicialDate"].ToString()),
-                                        DateTime.Parse(reader["FinalDate"].ToString()));
-                    return reservation;
-                }
+                    var reservationList = new List<Reservation>();
 
-                return default;
+
+                    string sqlCmd = @$"SELECT     R.Id, 
+                                               R.PersonId,
+                                               R.ProductionId,
+                                               R.InitialDate,
+                                               R.FinalDate,
+                                               P.Name,
+                                               P.Email,
+                                               P.Age,
+                                               P.PhoneNumber,
+                                               P.Password,
+                                               P.ProfileId,
+                                               P.Fee,
+                                               PF.Label,
+                                               PROD.Name as ProductionName,
+                                               PROD.Created as ProductionCreated,
+                                               PROD.Updated as ProductionUpdated                                            
+                                    FROM Reservation R 
+                                    JOIN Person P ON R.PersonId = P.Id
+                                    JOIN Production PROD ON R.ProductionId = PROD.Id
+                                    JOIN Profile PF ON P.ProfileId = PF.Id
+                                    WHERE P.Id='{id}';"
+                                    ;
+
+                    using SqlCommand cmd = new SqlCommand(sqlCmd, con);
+                    cmd.CommandType = CommandType.Text;
+                    await con.OpenAsync();
+
+                    var reader = await cmd.ExecuteReaderAsync()
+                                            .ConfigureAwait(false);
+
+                    while (reader.Read())
+                    {
+                        var reservation = new Reservation(
+                                            new User(reader["Name"].ToString(),
+                                                     reader["Email"].ToString(),
+                                                     reader["Age"].ToString(),
+                                                     reader["PhoneNumber"].ToString(),
+                                                     reader["Password"].ToString(),
+                                                     new Profile(
+                                                                int.Parse(reader["ProfileId"].ToString()),
+                                                                reader["Label"].ToString()),
+                                                     decimal.Parse(reader["Fee"].ToString())),
+                                                     new Production(int.Parse(reader["ProductionId"].ToString()),
+                                                                              reader["ProductionName"].ToString(),
+                                                                              int.Parse(reader["PersonId"].ToString()),
+                                                                              DateTime.Parse(reader["ProductionCreated"].ToString()),
+                                                                              DateTime.Parse(reader["ProductionUpdated"].ToString())),
+                                            DateTime.Parse(reader["ProductionCreated"].ToString()),
+                                            DateTime.Parse(reader["InitialDate"].ToString()),
+                                            DateTime.Parse(reader["FinalDate"].ToString()));
+                        reservationList.Add(reservation);
+                    }
+
+                    return reservationList;
+                }
             }
+
             catch (SqlException ex)
             {
                 throw new Exception(ex.Message);

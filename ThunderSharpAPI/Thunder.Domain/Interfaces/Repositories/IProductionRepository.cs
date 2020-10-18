@@ -10,6 +10,6 @@ namespace Thunder.Domain.Interfaces.Repositories
     {
         Task<int> InsertAsync(Production production);
         Task<Production> GetByID(int id);
-        IEnumerable<Production> Get();
+        Task<IEnumerable<Production>> Get();
     }
 }

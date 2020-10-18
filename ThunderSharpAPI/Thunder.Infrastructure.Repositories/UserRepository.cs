@@ -24,14 +24,16 @@ namespace Thunder.Infrastructure.Repositories
             try
             {
                 using var con = new SqlConnection(_configuration["DefaultConnection"]);
-                var sqlCmd = @$"SELECT Person.CPF, 
+                var sqlCmd =            @$"SELECT  
                                            Person.Email,
                                            Person.Name,
                                            Person.Age,
                                            Person.Password,
                                            Person.PhoneNumber,
                                            Person.ProfileId,
-                                           Profile.Label 
+                                           Person.Fee,
+                                           Profile.Label
+                                           
                                         FROM Person 
                                     JOIN Profile ON Person.ProfileId = Profile.Id
                                     WHERE Person.Email='{login.Email}';
@@ -50,8 +52,8 @@ namespace Thunder.Infrastructure.Repositories
                                         reader["Age"].ToString(),
                                         reader["PhoneNumber"].ToString(),
                                         reader["Password"].ToString(),
-                                        new Profile(int.Parse(reader["ProfileId"].ToString()), reader["Label"].ToString()),
-                                        decimal.Parse(reader["Fee"].ToString()));
+                                        decimal.Parse(reader["Fee"].ToString()),
+                                        new Profile(int.Parse(reader["ProfileId"].ToString()), reader["Label"].ToString()));
                     return user;
                 }
 
@@ -121,7 +123,7 @@ namespace Thunder.Infrastructure.Repositories
         {
             try
             {
-                using var con = new SqlConnection(_configuration["ConnectionString"]);
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
                 var sqlCmd = @$"    SELECT
                                            Person.Id, 
                                            Person.Email,
@@ -129,33 +131,77 @@ namespace Thunder.Infrastructure.Repositories
                                            Person.Age,
                                            Person.Password,
                                            Person.PhoneNumber,
-                                           Person.ProfileId,
-                                           Profile.Label 
+                                           Person.ProfileId
                                     FROM Person 
-                                    JOIN Profile ON Person.ProfileId = Profile.Id
                                     WHERE Person.Id='{id}';
 ";
 
                 using SqlCommand cmd = new SqlCommand(sqlCmd, con);
                 cmd.CommandType = CommandType.Text;
-                con.Open();
+                await con.OpenAsync();
 
                 var reader = await cmd.ExecuteReaderAsync().ConfigureAwait(false);
 
                 while (reader.Read())
-                {
-                    var user = new User(reader["Name"].ToString(),
-                                        reader["Email"].ToString(),
-                                        reader["Age"].ToString(),
-                                        reader["PhoneNumber"].ToString(),
-                                        reader["Password"].ToString(),
-                                        new Profile(int.Parse(reader["ProfileId"].ToString()),
-                                        reader["Label"].ToString()),decimal.Parse(reader["Fee"].ToString()));
-                    return user;
+                { 
+                    return new User(int.Parse(reader["Id"].ToString()));
                 }
 
                 return default;
             }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public async Task<IEnumerable<User>> SearchUserByFeeGenresReservationDates(int genreId, decimal fee, DateTime initialReservation, DateTime finalReservation)
+        {
+            try
+            {
+                using var con = new SqlConnection(_configuration["DefaultConnection"]);
+                {
+                    var searchList = new List<User>();
+
+
+                    string sqlCmd = @$" SELECT Person.Id, Person.Name, Person.Age, Person.Fee, Person.Email, Person.PhoneNumber 
+                                        FROM Person
+                                        JOIN Reservation On Reservation.PersonId = Person.Id
+                                        JOIN PersonGenres On PersonGenres.PersonId = Person.Id
+                                        WHERE PersonGenres.GenreId = '{genreId}'
+                                        AND Person.Fee <= '{fee}'
+                                        AND   ('{initialReservation}' < Reservation.InitialDate  OR Reservation.FinalDate < '{initialReservation}')
+                                        AND   ('{finalReservation}' < Reservation.InitialDate  OR Reservation.FinalDate < '{finalReservation}')          
+                                        Group By
+                                        Person.Id,
+                                        Person.Name,
+                                        Person.Age,
+                                        Person.Fee, 
+                                        Person.PhoneNumber, 
+                                        Person.Email;"
+                                    ;
+
+                    using SqlCommand cmd = new SqlCommand(sqlCmd, con);
+                    cmd.CommandType = CommandType.Text;
+                    await con.OpenAsync();
+
+                    var reader = await cmd.ExecuteReaderAsync()
+                                            .ConfigureAwait(false);
+
+                    while (reader.Read())
+                    {
+                        var search = new User(int.Parse(reader["Id"].ToString()),
+                                              reader["Name"].ToString(),
+                                              reader["Age"].ToString(),
+                                              decimal.Parse(reader["Fee"].ToString()),
+                                              reader["Email"].ToString(),
+                                              reader["PhoneNumber"].ToString());
+                        searchList.Add(search);
+                    }
+
+                    return searchList;
+                }
+            }
+
             catch (SqlException ex)
             {
                 throw new Exception(ex.Message);

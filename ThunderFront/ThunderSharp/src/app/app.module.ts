@@ -3,13 +3,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavComponent } from './nav/nav.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { ActorHomeComponent } from './actor-home/actor-home.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -21,6 +24,7 @@ import { ActorHomeComponent } from './actor-home/actor-home.component';
     SignupComponent,
     DashboardComponent,
     NavComponent,
+    SidebarComponent,
     ActorHomeComponent  ],
   imports: [
     BrowserModule,
@@ -28,7 +32,9 @@ import { ActorHomeComponent } from './actor-home/actor-home.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
+    BsDropdownModule,
     NgxEchartsModule.forRoot({
       /**
        * This will import all modules from echarts.

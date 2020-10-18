@@ -36,7 +36,6 @@ export class SignupComponent implements OnInit {
   signUpSubmit(): any{
     const user = this.signUpForm.value as SignUp;
     console.log(user);
-    
     this.serviceBase.SignUp(user).subscribe((id: number) =>
     {
       this.idUser = id;

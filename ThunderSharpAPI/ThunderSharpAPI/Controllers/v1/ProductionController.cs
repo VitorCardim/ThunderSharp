@@ -35,13 +35,30 @@ namespace ThunderSharpAPI.Controllers.v1
 
         }
 
+        [HttpGet("search")] //api/Production
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        public async Task<IActionResult> SearchProductionDetail(int id, int personId)
+        {
+            return OkOrNoContent(await _productionappservice.SearchProductionDetail(id, personId).ConfigureAwait(false));
+        }
+
         [HttpGet] //api/Production
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(500)]
         public async Task<IActionResult> Get()
         {
-            return OkOrNoContent( await _productionappservice.Get());
+            try
+            {
+                return OkOrNoContent(await _productionappservice.Get());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+
         }
 
         [HttpGet("{id}")] //api/Production

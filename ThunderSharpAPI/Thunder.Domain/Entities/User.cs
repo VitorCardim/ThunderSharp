@@ -49,6 +49,12 @@ namespace Thunder.Domain.Entities
             this.Id = Id;
         }
 
+        public User(int Id, string name)
+        {
+            this.Id = Id;
+            this.Name = name;
+        }
+
         public int Id { get; private set; }
         public string Name { get; private set; }
         public string Email { get; private set; }

@@ -31,11 +31,8 @@ namespace Thunder.Application.AppThunder
                 var User = new User( Name, Email, Age, PhoneNumber, Password, profile, fee);
                 if (User.IsValid())
                 {
-                    var user = await _userRepository.InsertUserAsync(User);
-                    if(user > 0)
-                    {
-                        return user;
-                    }
+                    
+                    return await _userRepository.InsertUserAsync(User);
                 }
                 _notification.NewNotificationBadRequest("Campos Incorretos");
                 return default;

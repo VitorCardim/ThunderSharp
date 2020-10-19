@@ -35,6 +35,7 @@ namespace ThunderSharpAPI.Controllers.v1
 
         }
 
+        //[Authorize(Roles = "Producer")]
         [HttpGet("search")] //api/Production
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]
@@ -44,6 +45,7 @@ namespace ThunderSharpAPI.Controllers.v1
             return OkOrNoContent(await _productionappservice.SearchProductionDetail(id, personId).ConfigureAwait(false));
         }
 
+        //[Authorize(Roles = "Producer")]
         [HttpGet] //api/Production
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]
@@ -61,6 +63,7 @@ namespace ThunderSharpAPI.Controllers.v1
 
         }
 
+        //[Authorize(Roles = "Producer")]
         [HttpGet("{id}")] //api/Production
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]
@@ -70,6 +73,7 @@ namespace ThunderSharpAPI.Controllers.v1
             return OkOrNoContent(await _productionappservice.GetById(id).ConfigureAwait(false));
         }
 
+        //[Authorize(Roles = "Producer")]
         [AllowAnonymous]
         [HttpPost]
         [ProducesResponseType(typeof(string), 201)]

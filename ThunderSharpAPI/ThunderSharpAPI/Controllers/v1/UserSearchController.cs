@@ -30,7 +30,7 @@ namespace ThunderSharpAPI.Controllers.v1
             _notificationHandler = (DomainNotificationHandler)notification;
         }
 
-        //[Authorize(Roles = "Productor")]
+        //[Authorize(Roles = "Producer")]
         [HttpGet("search")] //api/search
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]

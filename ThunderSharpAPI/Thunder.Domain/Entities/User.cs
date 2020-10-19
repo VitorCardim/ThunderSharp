@@ -91,7 +91,7 @@ namespace Thunder.Domain.Entities
             RuleFor(a => a.Password).MinimumLength(8);
             RuleFor(a => a.Email).EmailAddress();
             RuleFor(a => a.Age).NotNull();
-            RuleFor(a => a.PhoneNumber).MaximumLength(11);
+            RuleFor(a => a.PhoneNumber).MaximumLength(15);
         }
     }
 }

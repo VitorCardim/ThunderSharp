@@ -42,13 +42,9 @@ namespace ThunderSharpAPI.Controllers.v1
         {
             try
             {
-                var result = await _registerAppService.Register(register.Name, register.Email, register.Password,
-                    register.Age,register.PhoneNumber,register.IdProfile,register.Fee);
-                if(result > 0)
-                {
-                    return Ok();
-                }
-                return OkOrNoContent(_notificationHandler.GetNotifications());
+                return Ok(await _registerAppService.Register(register.Name, register.Email, register.Password,
+                      register.Age, register.PhoneNumber, register.IdProfile, register.Fee));
+      
 
             }
             catch (Exception ex)

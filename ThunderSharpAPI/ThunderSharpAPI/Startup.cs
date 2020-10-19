@@ -50,6 +50,7 @@ namespace ThunderSharpAPI
 
             services.AddTransient<IValidator<Login>, LoginValidator>();
             #region autenti
+           
             var signingConfigurations = new SigningConfigurations();
             services.AddSingleton(signingConfigurations);
 

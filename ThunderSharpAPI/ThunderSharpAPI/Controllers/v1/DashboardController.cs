@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Thunder.Application.AppDashboard.Interfaces;
 using Marraia.Notifications.Models;
 using Marraia.Notifications.Base;
+using System.Linq;
+using System.Security.Claims;
 
 namespace ThunderSharpAPI.Controllers.v1
 {
@@ -41,11 +43,12 @@ namespace ThunderSharpAPI.Controllers.v1
         [ProducesResponseType(500)]
         public async Task<IActionResult> GetTotal() 
         {
+
             return OkOrNoContent( await _dashboardService.GetTotal());
         }
 
 
-        //[Authorize(Roles = "Productor")]
+        //[Authorize(Roles = "Producer")]
         [HttpGet("dashboard/days")] //api/Dashboard
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]
@@ -53,10 +56,21 @@ namespace ThunderSharpAPI.Controllers.v1
         public async Task<IActionResult> GetMostReservedDays()
         {
             return OkOrNoContent(await _dashboardService.GetMostReservedDays());
+
+            //Retornar Claims do Client.
+
+            //if (User.Claims.Where(a => a.Type == ClaimTypes.Role).Any())
+            //{
+            //    var user = User.Claims.Where(a => a.Type == ClaimTypes.Role).FirstOrDefault();
+
+            //    return OkOrNoContent(await _dashboardService.GetMostReservedDays());
+            //}
+
+            //return Unauthorized();
+
         }
 
-
-        //[Authorize(Roles = "Productor")]
+        //[Authorize(Roles = "Producer")]
         [HttpGet("dashboard/reserved")] //api/Dashboard
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]

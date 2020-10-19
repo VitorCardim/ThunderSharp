@@ -30,16 +30,20 @@ export class BaseService {
         catchError(this.handleError)
       );
     }
+   // tslint:disable-next-line:typedef
+    GetMostReservedDays(){
+      return this.httpClient.get(this.url + '/Dashboard/dashboard/days', this.httpOptions).pipe(
+        catchError(this.handleError)
+      );
+    }
 
     // tslint:disable-next-line:typedef
     handleError(error: HttpErrorResponse) {
-      let errorMessage = '';
       if (error.error instanceof ErrorEvent) {
-        errorMessage = error.error.message;
+        alert('Error Fatal');
       } else {
-        errorMessage = `Código do erro: ${error.status}, ` + `Erro: ${error.message}`;
+        alert('Error Fatal');
       }
-      console.log(errorMessage);
-      return throwError(errorMessage);
+      return throwError('erros');
     }
 }

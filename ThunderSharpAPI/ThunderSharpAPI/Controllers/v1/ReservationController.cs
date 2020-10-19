@@ -30,7 +30,7 @@ namespace ThunderSharpAPI.Controllers.v1
             _notificationHandler = (DomainNotificationHandler)notification;
         }
 
-        //[Authorize(Roles = "Productor")]
+        //[Authorize(Roles = "Actor")]
         [HttpGet("actor/{id}")] //api/actor
         [ProducesResponseType(typeof(string), 200)]
         [ProducesResponseType(400)]
@@ -43,6 +43,7 @@ namespace ThunderSharpAPI.Controllers.v1
                 .ConfigureAwait(false));
         }
 
+        //[Authorize(Roles = "Producer")]
         [HttpPost]
         [ProducesResponseType(typeof(string), 201)]
         [ProducesResponseType(400)]

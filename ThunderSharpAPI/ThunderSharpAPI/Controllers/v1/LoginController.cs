@@ -53,7 +53,7 @@ namespace ThunderSharpAPI.Controllers.v1
                     var identity = new ClaimsIdentity(
                         new GenericIdentity(user.Email, "Email"),
                         new[] {
-                        //new Claim(JwtRegisteredClaimNames.Jti, user.Id.ToString()),
+                        new Claim(JwtRegisteredClaimNames.Jti, user.Id.ToString()),
                         new Claim(ClaimTypes.Role, user.Profile.Label),
                         new Claim("IdProfile", user.Profile.Id.ToString()),
                         new Claim("NameUser", user.Name),

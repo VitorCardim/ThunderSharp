@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
   
   intercept( request: HttpRequest<any>, next: HttpHandler ): Observable<HttpEvent<any>> {
     const User: Token = JSON.parse(localStorage.getItem('UserToken'));
+    console.log(User.accessToken);
+    
     if (User != null){
       request = request.clone({
         setHeaders: {

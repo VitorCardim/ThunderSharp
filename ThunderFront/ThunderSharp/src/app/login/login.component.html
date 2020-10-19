@@ -25,6 +25,8 @@
                                     <input type="password" placeholder="Senha" formControlName = "Password" class="form-control">
                                 </div>
                                 <button type="submit" [disabled]= "!loginForm.valid" style="background-color: #23ABFE;color: white" class="btn w-100">Login</button>
+                               <br/>
+                                <button type="button" (click)="onClick($event)" style="background-color: #23ABFE;color: white; margin-top: 20px;" class="btn w-100">Registrar</button>
                                 <div class="input-group-prepend">
                                 </div>                                
                             </div>

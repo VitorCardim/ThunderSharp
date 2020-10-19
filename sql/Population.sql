@@ -3,12 +3,11 @@ use TV;
 
 INSERT INTO 
     Profile(Label,Created,Updated)
-VALUES ('Actor/Actress',GETDATE(),GETDATE())
+VALUES ('Actor',GETDATE(),GETDATE())
 
 INSERT INTO 
     Profile(Label,Created,Updated)
 VALUES ('Producer',GETDATE(),GETDATE())
-
 
 
 INSERT INTO 

@@ -1,3 +1,4 @@
+import { Interceptor } from './auth/interceptor/interceptor.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +33,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    Interceptor,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     BsDropdownModule,

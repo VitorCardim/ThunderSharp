@@ -29,13 +29,17 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line:typedef
+  onClick(event: any){
+    this.router.navigate(['/signup']);
+  }
   loginSubmit(): any{
     const user = this.loginForm.value as SignIn;
     
     this.baseService.SignIn(user).subscribe((token: Token) =>
     {
       if (token.accessToken != null){
-        // console.log(token.accessToken);
+        //console.log(token.accessToken);
         // const decoded = jwt_decode(token.accessToken);
         // console.log(decoded);
         localStorage.setItem('UserToken', JSON.stringify(token));

@@ -14,6 +14,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { ActorHomeComponent } from './actor-home/actor-home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ProductionComponent } from './production/production.component';
 
 
 
@@ -26,7 +27,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     DashboardComponent,
     NavComponent,
     SidebarComponent,
-    ActorHomeComponent  ],
+    ActorHomeComponent,
+    ProductionComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

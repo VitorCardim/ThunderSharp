@@ -1,0 +1,30 @@
+<div class="topnav">
+  <a href="#Name">Name of person</a>
+</div>
+
+<!-- Side navigation -->
+<div class="sidenav">
+  <a class= "active" href="#Home">Home</a>
+  <a href="#Log out">Log out</a>
+ </div>
+
+<!-- Page content -->
+<div class="main">
+  <h1>{{titulo}}</h1>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Production Name</th>
+      <th scope="col">Reservation Initial Date</th>
+      <th scope="col">Reservation Final Date</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let reservation of reservations">
+    <tr>  
+      <th scope="row">{{reservation.name}}</th>
+      <td>{{reservation.initial}}</td>
+      <td>{{reservation.final}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

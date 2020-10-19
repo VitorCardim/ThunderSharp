@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThunderSharpAPI", "ThunderSharpAPI\ThunderSharpAPI.csproj", "{8695884F-1189-4D64-AA48-98FA7611970D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunder.Domain", "Thunder.Domain\Thunder.Domain.csproj", "{FEF08E61-A999-4464-BE08-8FC6055B610E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunder.Infrastructure.Ioc", "Thunder.Infrastructure.Ioc\Thunder.Infrastructure.Ioc.csproj", "{F4C21300-8CB9-4BF4-91B2-4F2783CECDDC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunder.Application", "Thunder.Application\Thunder.Application.csproj", "{86BC3D47-8283-409B-B873-9118529410CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thunder.Infrastructure.Repositories", "Thunder.Infrastructure.Repositories\Thunder.Infrastructure.Repositories.csproj", "{A3EB3319-6652-4214-80E8-5725B87261A7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThunderSharp.Tests", "ThunderSharp.Testes\ThunderSharp.Tests.csproj", "{1A67A414-55AA-4B02-B570-17E2192AD008}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8695884F-1189-4D64-AA48-98FA7611970D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8695884F-1189-4D64-AA48-98FA7611970D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8695884F-1189-4D64-AA48-98FA7611970D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8695884F-1189-4D64-AA48-98FA7611970D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEF08E61-A999-4464-BE08-8FC6055B610E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEF08E61-A999-4464-BE08-8FC6055B610E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEF08E61-A999-4464-BE08-8FC6055B610E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEF08E61-A999-4464-BE08-8FC6055B610E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4C21300-8CB9-4BF4-91B2-4F2783CECDDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C21300-8CB9-4BF4-91B2-4F2783CECDDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4C21300-8CB9-4BF4-91B2-4F2783CECDDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4C21300-8CB9-4BF4-91B2-4F2783CECDDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86BC3D47-8283-409B-B873-9118529410CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86BC3D47-8283-409B-B873-9118529410CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86BC3D47-8283-409B-B873-9118529410CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86BC3D47-8283-409B-B873-9118529410CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3EB3319-6652-4214-80E8-5725B87261A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3EB3319-6652-4214-80E8-5725B87261A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3EB3319-6652-4214-80E8-5725B87261A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3EB3319-6652-4214-80E8-5725B87261A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A67A414-55AA-4B02-B570-17E2192AD008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A67A414-55AA-4B02-B570-17E2192AD008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A67A414-55AA-4B02-B570-17E2192AD008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A67A414-55AA-4B02-B570-17E2192AD008}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {447E431D-5443-4657-83B5-EBD7F17A77E6}
+	EndGlobalSection
+EndGlobal
